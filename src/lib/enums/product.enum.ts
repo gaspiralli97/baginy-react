@@ -1,18 +1,24 @@
 
 
 export enum ProductSize{
-    SMALL ="SMALL",
-    NORMAL="NORMAL",
-    LARGE = "LARGE",
-    SET = "SET",
+    SMALL_20 ="20 INCH",
+    LARGE = "28 INCH",
 }
 
-export enum ProductVolume{
-    HALF = 0.5,
-    ONE = 1,
-    ONE_POINT_TWO =1.2,
-    ONE_POINT_FIVE = 1.5,
-    TWO = 2,
+export enum ProductBundle{
+    SINGLE="SINGLE",
+    SET="SET",
+}
+
+
+export enum ProductColor{
+    GREY="GREY",
+    WHITE="WHITE",
+    PINK="PINK",
+
+    DARK_BROWN="DARK_BROWN",
+    GOLD="GOLD",
+    BURGUNDY="BURGUNDY",
 }
 
 export enum ProductStatus {
@@ -22,9 +28,15 @@ export enum ProductStatus {
 }
 
 export enum ProductCollection{
-    DISH = "DISH",
-    SALAD = "SALAD",
-    DESSERT = "DESSERT",
-    DRINK = "DRINK",
-    OTHER = "OTHER",
+    TRAVEL="TRAVEL",
+    SPORT="SPORT",
+    BUSINESS="BUSINESS",
+    SPECIAL="SPECIAL",
+     
+}
+
+export enum ProductMode {
+    ELEGANT="ELEGANT",
+    PREMIUM="PREMIUM",
+    
 }
