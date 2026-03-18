@@ -1,0 +1,388 @@
+
+.home-navbar{
+    width: 100%;
+    height: 773px;
+    display: flex;
+    background: url("/public/img/banner.webp");
+    background-size: cover;
+}
+
+.home-navbar .navbar-container{
+    margin-top: 55px;
+    height: 642px;
+}
+
+.home-navbar .navbar-container .menu{
+    height:50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-navbar .navbar-container .menu .brand-logo{
+    width: 125px;
+    height: 30px;
+}
+
+.home-navbar .navbar-container .menu .links{
+    min-width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-navbar .navbar-container .menu .links .login-button{
+   background:#3776CC;
+   color:#f8f8ff;
+}
+
+.home-navbar .navbar-container .menu .links .user-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 24px;
+}
+
+
+.home-navbar a {
+    text-decoration: none;
+}
+
+.home-navbar .hover-line a {
+    color:#f8f8ff;
+    z-index: 100;
+}
+
+.home-navbar .underline{
+    display: block;
+    content: "";
+    border-bottom: solid 2px #d7b686;
+}
+
+.home-navbar .hover-line:after {
+    display: block;
+    content: "";
+    border-bottom: solid 2px #d7b686;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+
+}
+
+.home-navbar .hover-line:hover:after{
+    transform: scaleX(1);
+}
+
+.home-navbar div.hover-line:after{
+    transform-origin: 0% 50%;
+}
+
+.home-navbar .navbar-container .header-frame{
+    margin-top: 142px;
+    height: 462px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.home-navbar .navbar-container .header-frame .detail{
+    width: 510px;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-navbar .navbar-container .header-frame .detail .head-main-txt{
+    width: 450px;
+    height: 150px;
+
+    font-family: "Roboto Serif";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.75px;
+    color: #f8f8ff;
+}
+
+.home-navbar .navbar-container .header-frame .detail .wel-txt{
+    width: 510px;
+    height: 42px;
+
+    font-family: "Roboto Serif";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.54px;
+    color: #d7b686;
+}
+
+.home-navbar .navbar-container .header-frame .detail .service-txt{
+    margin-top: 23px;
+    width: 153px;
+    height: 23px;
+
+    font-family: "Roboto Serif";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #d5d5d5;
+}
+
+.home-navbar .navbar-container .detail .signup{
+    margin-top: 73px;
+}
+
+.home-navbar .navbar-container .detail .signup-button{
+    
+    width: 210px;
+    height: 60px;
+    border-radius: 4px;
+    text-align: center;
+    background: #1976d2;
+    font-family: "Poppins";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+    color: #f8f8ff;
+}
+
+.home-navbar .navbar-container .logo-frame{
+    margin-top: 43px;
+    width: 690px;
+    height: 419px;
+}
+
+.home-navbar .navbar-container .logo-frame .logo-img{
+    height: 100%;
+    width: 100%;
+    background: url("/public/img/logo.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(30%);
+}
+
+/* other navbar */
+
+
+.other-navbar{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    background: url("/public/img/banner.webp");
+    background-size: cover;
+}
+
+.other-navbar .navbar-container{
+    margin-top: 55px;
+   
+}
+
+.other-navbar .navbar-container .menu{
+    height:50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-navbar .navbar-container .menu .brand-logo{
+    width: 125px;
+    height: 30px;
+}
+
+.other-navbar .navbar-container .menu .links{
+    min-width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-navbar .navbar-container .menu .links .login-button{
+   background:#3776CC;
+   color:#f8f8ff;
+}
+
+.other-navbar .navbar-container .menu .links .user-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 24px;
+}
+
+
+.other-navbar a {
+    text-decoration: none;
+}
+
+.other-navbar .hover-line a {
+    color:#f8f8ff;
+    z-index: 100;
+}
+
+.other-navbar .underline{
+    display: block;
+    content: "";
+    border-bottom: solid 2px #d7b686;
+}
+
+.other-navbar .hover-line:after {
+    display: block;
+    content: "";
+    border-bottom: solid 2px #d7b686;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+
+}
+
+.other-navbar .hover-line:hover:after{
+    transform: scaleX(1);
+}
+
+.other-navbar div.hover-line:after{
+    transform-origin: 0% 50%;
+}
+
+
+
+
+/* BASKET */
+
+.basket-frame {
+  position: relative;
+  padding: 10px 4px 0px 4px;
+  width: 450px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: #f8f8ff;
+  border-radius: 16px;
+}
+
+.basket-frame .all-check-box {
+  padding: 0px 6px;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #d7b586;
+  border-width: 1px 0px;
+  border-style: solid;
+  border-color: #343434;
+}
+
+.basket-frame .basket-info-box {
+  position: relative;
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.basket-info-box .product-img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 29px;
+}
+
+.basket-info-box .product-name {
+  margin-left: 11px;
+  width: 185px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.basket-info-box .product-price {
+  width: 80px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #ae0000;
+}
+
+.basket-info-box
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 6.5px 14px;
+}
+
+.basket-info-box .css-ece9u5 {
+  min-width: 72px;
+}
+
+.basket-frame .cancel-btn {
+  position: absolute;
+  top: 33%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.basket-frame .basket-order {
+  margin-top: 10px;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.basket-order .price {
+  width: 200px;
+  display: flex;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.basket-frame .orders-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.basket-frame .orders-main-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+
