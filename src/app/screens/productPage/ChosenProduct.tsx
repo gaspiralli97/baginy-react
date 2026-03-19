@@ -13,9 +13,9 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 import { useDispatch, useSelector} from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setRestaurant, setChosenProduct} from "./slice";
+import { setSeller, setChosenProduct} from "./slice";
 import { Product } from "../../../lib/types/product";
-import { retrieveRestaurant, retrieveChosenProduct } from "./selector";
+import { retrieveSeller, retrieveChosenProduct } from "./selector";
 import { createSelector} from "reselect";
 import { useParams } from "react-router-dom";
 import { Member } from "../../../lib/types/member";
@@ -26,12 +26,12 @@ import { CartItem } from "../../../lib/types/search";
 
 //Redux Slice & Selector
 const actionDispatch= (dispatch:Dispatch)=>({
-  setRestaurant:(data:Member)=> dispatch(setRestaurant(data)),
+  setSeller:(data:Member)=> dispatch(setSeller(data)),
   setChosenProduct:(data:Product)=> dispatch(setChosenProduct(data)),
 });
 
 const chosenProductRetriever =createSelector(retrieveChosenProduct, (chosenProduct)=>({chosenProduct}));
-const restaurantRetriever =createSelector(retrieveRestaurant, (restaurant)=>({restaurant}));
+const sellerRetriever =createSelector(retrieveSeller, (seller)=>({seller}));
 
 interface ChosenProductsProps{
   onAdd:(item:CartItem) =>void;
@@ -39,9 +39,9 @@ interface ChosenProductsProps{
 export default function ChosenProduct(props:ChosenProductsProps) {
   const {onAdd}= props;
   const {productId} = useParams<{productId:string}>();
-  const {setRestaurant, setChosenProduct} = actionDispatch(useDispatch());
+  const {setSeller, setChosenProduct} = actionDispatch(useDispatch());
   const {chosenProduct} = useSelector(chosenProductRetriever);
-  const {restaurant} = useSelector(restaurantRetriever);
+  const {seller} = useSelector(sellerRetriever);
   useEffect(()=>{
     const product = new ProductService();
     product
@@ -51,8 +51,8 @@ export default function ChosenProduct(props:ChosenProductsProps) {
 
     const member = new MemberService();
     member
-      .getRestaurant()
-      .then((data)=>setRestaurant(data))
+      .getSeller()
+      .then((data)=>setSeller(data))
       .catch((err)=>console.log(err));
   }, []);
 
@@ -84,8 +84,8 @@ export default function ChosenProduct(props:ChosenProductsProps) {
         <Stack className={"chosen-product-info"}>
           <Box className={"info-box"}>
             <strong className={"product-name"}>{chosenProduct?.productName}</strong>
-            <span className={"resto-name"}>{restaurant?.memberNick}</span>
-            <span className={"resto-name"}>{restaurant?.memberPhone}</span>
+            <span className={"resto-name"}>{seller?.memberNick}</span>
+            <span className={"resto-name"}>{seller?.memberPhone}</span>
             <Box className={"rating-box"}>
               <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
               <div className={"evaluation-box"}>

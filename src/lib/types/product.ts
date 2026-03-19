@@ -1,4 +1,4 @@
-import { ProductCollection, ProductSize, ProductStatus } from "../enums/product.enum";
+import { ProductBundle, ProductCollection, ProductColor, ProductMode, ProductSize, ProductStatus } from "../enums/product.enum";
 
 export interface Product{
     _id: string;
@@ -8,6 +8,9 @@ export interface Product{
     productPrice: number;
     productLeftCount: number;
     productSize: ProductSize;
+    productColor: ProductColor;
+    productBundle: ProductBundle;
+    productMode: ProductMode;
     productVolume: number;
     productDesc?: string;
     productImages: string[];

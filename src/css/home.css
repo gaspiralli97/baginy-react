@@ -252,7 +252,7 @@
     color: #e3c08d;
 }
 
-.homepage .ads-restaurant-frame{
+.homepage .ads-seller-frame{
     width: 100%;
     height: 693px;
     display: flex;
@@ -262,7 +262,7 @@
     box-shadow: -3px 0px 20px 14px #34343480;
 }
 
-.homepage .ads-restaurant-frame .ads-video{
+.homepage .ads-seller-frame .ads-video{
     width: 100%;
     background: #0c0e12;
     display: flex;

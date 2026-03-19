@@ -17,7 +17,7 @@ export const plans = [
 	},
 	{
 		title: 'New Project Lunch',
-		desc: 'New Restaurant is opening in Florida',
+		desc: 'New Velmora Store is opening in Florida',
 		author: 'Morgan News',
 		date: '5 days ago',
 		location: 'USA, Florida',

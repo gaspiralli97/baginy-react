@@ -38,7 +38,7 @@ export default function HomePage() {
       page:1,
       limit: 4,
       order:"productViews",
-      productCollection:ProductCollection.DISH,
+      productCollection:ProductCollection.TRAVEL,
     })
     .then((data) =>{
       
