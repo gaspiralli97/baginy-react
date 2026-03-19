@@ -122,9 +122,12 @@
 
 /* ── HERO BOTTOM TEXT ── */
 .home-navbar .hero-bottom {
-  padding: 48px 0 56px;
+  padding: 120px 0 56px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-right: auto;
+  max-width: 55%;
 }
 
 .home-navbar .hero-label {
@@ -166,6 +169,27 @@
   line-height: 88px;
   letter-spacing: -3px;
   color: #0C0C0C;
+}
+
+.home-navbar .hero-sign-btn {
+  margin-top: 50px !important;
+  background: #FFFFFF !important;
+  color: #0C0C0C !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1.5px solid #0C0C0C !important;
+  border-radius: 100px !important;
+  padding: 7px 28px !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  transition: background 0.2s, color 0.2s !important;
+  align-self: flex-start;
+}
+
+.home-navbar .hero-sign-btn:hover {
+  background: #0C0C0C !important;
+  color: #FFFFFF !important;
 }
 
 /* ═══════════════════════════════════════════
