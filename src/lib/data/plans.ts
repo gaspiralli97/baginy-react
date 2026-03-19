@@ -1,7 +1,7 @@
 export const plans = [
 	{
 		title: 'Anniversary Sale — 20% Off',
-		desc: 'Celebrating 5 years of premium travel gear. Enjoy 20% off our entire collection for one week only — in-store and online.',
+		desc: 'Celebrating 10 years of premium travel gear. Enjoy 20% off our entire collection for one week only — in-store and online.',
 		author: 'Velmora Team',
 		date: 'Apr 10 – Apr 17, 2026',
 		location: 'Worldwide · Online & In-Store',

@@ -6,6 +6,28 @@
   background: #EBEBEB;
 }
 
+/* FILTER TEXT */
+.products-page .filter-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #888888;
+  cursor: pointer;
+  padding: 4px 2px;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.products-page .filter-text:hover {
+  color: #0C0C0C;
+}
+
+.products-page .filter-text.active {
+  color: #0C0C0C;
+  font-weight: 600;
+  border-bottom: 1.5px solid #0C0C0C;
+}
+
 /* PRODUCTS */
 
 .products-page .products {
@@ -25,6 +47,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .products-page .products .avatar-big-box .title {
@@ -190,7 +213,7 @@
 
 /* ── PRODUCT CARD (RIMOWA style) ── */
 .products-page .products .product-wrapper .product-card {
-  width: 260px;
+  width: 390px;
   height: auto;
   margin-top: 32px;
   background: #FFFFFF;
@@ -210,7 +233,7 @@
 .products-page .products .product-wrapper .product-card .product-img {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 420px;
   background-color: #F4F4F4;
   overflow: hidden;
   border-radius: 0;
@@ -411,6 +434,25 @@
   gap: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.products-page .brand-logo .brand-card .card1,
+.products-page .brand-logo .brand-card .card2,
+.products-page .brand-logo .brand-card .card3,
+.products-page .brand-logo .brand-card .card4,
+.products-page .brand-logo .brand-card .card5 {
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease;
+}
+
+.products-page .brand-logo .brand-card .card1:hover,
+.products-page .brand-logo .brand-card .card2:hover,
+.products-page .brand-logo .brand-card .card3:hover,
+.products-page .brand-logo .brand-card .card4:hover,
+.products-page .brand-logo .brand-card .card5:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
 }
 
 .products-page .brand-logo .brand-card .card1 {

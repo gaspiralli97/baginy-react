@@ -28,7 +28,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
   return (
     <div
       className="home-navbar"
-      style={{ backgroundImage: "url('https://cdn.prod.website-files.com/66ec6afe3cc26899cbbb300a/66eddcbf29d527e056d8dceb_Hero%20Background-p-1600.jpg')" }}
+      style={{ backgroundImage: "url('/img/hero-background.jpg')" }}
     >
       {/* ── TOP MENU ── */}
       <Container className="navbar-container">
@@ -118,7 +118,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
       </Container>
 
       {/* ── HERO TEXT — bottom-left over image ── */}
-      <Container>
+      <Container className={"hero-container"}>
         <Stack className={"hero-bottom"}>
           <Box className={"hero-label"}>
             <span>More Products</span>
