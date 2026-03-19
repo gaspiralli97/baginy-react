@@ -24,7 +24,7 @@ export default function OtherNavbar(props:OtherNavbarProps) {
     const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, setSignupOpen,handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
     const {authMember}=useGlobals();
     return (
-         <div className="other-navbar">
+         <div className="other-navbar" style={{ backgroundImage: "url('/img/othernavbar.png')" }}>
             <Container className="navbar-container">
                 <Stack className="menu" >
                     <Box>

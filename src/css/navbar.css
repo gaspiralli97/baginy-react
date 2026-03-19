@@ -5,7 +5,7 @@
 /* ── HOME NAVBAR WRAPPER ── */
 .home-navbar {
   width: 100%;
-  min-height: 100vh;
+  min-height: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,7 +38,9 @@
   backdrop-filter: blur(12px);
   z-index: 1000;
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  margin: 30px 90px 0;
+  max-width: 1320px;
+  width: calc(100% - 180px);
+  margin: 30px auto 0;
   border-radius: 20px;
   padding: 0 24px;
 }
@@ -120,14 +122,22 @@
   display: none;
 }
 
+/* ── HERO CONTAINER ── */
+.home-navbar .hero-container {
+  max-width: 1320px !important;
+  width: calc(100% - 180px) !important;
+  margin: 0 auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* ── HERO BOTTOM TEXT ── */
 .home-navbar .hero-bottom {
   padding: 120px 0 56px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-right: auto;
-  max-width: 55%;
+  max-width: 760px;
 }
 
 .home-navbar .hero-label {
@@ -164,10 +174,10 @@
 
 .home-navbar .head-main-txt {
   font-family: "Poppins", sans-serif;
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 400;
-  line-height: 88px;
-  letter-spacing: -3px;
+  line-height: 44px;
+  letter-spacing: -1.5px;
   color: #0C0C0C;
 }
 
@@ -197,10 +207,12 @@
 ═══════════════════════════════════════════ */
 .other-navbar {
   width: 100%;
-  height: auto;
+  min-height: 540px;
   display: flex;
   flex-direction: column;
-  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .other-navbar .navbar-container {
@@ -222,7 +234,9 @@
   background: rgba(235, 235, 235, 0.85);
   backdrop-filter: blur(12px);
   z-index: 1000;
-  margin: 30px 90px 0;
+  max-width: 1320px;
+  width: calc(100% - 180px);
+  margin: 30px auto 0;
   border-radius: 20px;
   padding: 0 24px;
 }

@@ -42,7 +42,7 @@ export default function Products(props:ProductsProps) {
       page:1,
       limit: 8,
       order:"createdAt",
-      productCollection:ProductCollection.SPORT,
+      productCollection:ProductCollection.BUSINESS,
       search:"",
   });
   const [searchText, setSearchText] = useState<string>("");
@@ -134,33 +134,18 @@ const chosenDishHandler = (id:string) =>{
             </Stack>
           </Stack>
           <Stack className={"dishes-filter-section"}>
-            <Stack className={"dishes-filter-box"} spacing={1}>
-              <Button variant="contained" color={productSearch.order === "createdAt" ? "primary" : "secondary" } onClick={()=>searchOrderHandler("createdAt")}>
-                New
-              </Button>
-              <Button variant="contained"  color={productSearch.order === "productPrice" ? "primary" : "secondary" } onClick={()=>searchOrderHandler("productPrice")}>
-                Price
-              </Button>
-              <Button variant="contained"  color={productSearch.order === "productViews" ? "primary" : "secondary" } onClick={()=>searchOrderHandler("productViews")}>
-                Views
-              </Button>
+            <Stack className={"dishes-filter-box"} direction="row" spacing={1}>
+              <span className={productSearch.order === "createdAt" ? "filter-text active" : "filter-text"} onClick={()=>searchOrderHandler("createdAt")}>New</span>
+              <span className={productSearch.order === "productPrice" ? "filter-text active" : "filter-text"} onClick={()=>searchOrderHandler("productPrice")}>Price</span>
+              <span className={productSearch.order === "productViews" ? "filter-text active" : "filter-text"} onClick={()=>searchOrderHandler("productViews")}>Views</span>
             </Stack>
           </Stack>
           <Stack className={"list-category-section"} spacing={2}>
             <Stack className="prod-cat" direction="row" spacing={1}>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.BUSINESS? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.BUSINESS)}>
-                Business
-              </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.SPORT? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.SPORT)}>
-                Sport
-              </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.TRAVEL ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.TRAVEL)}>
-                Travel
-              </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.SPECIAL ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.SPECIAL)}>
-                Special
-              </Button>
-            
+              <span className={productSearch.productCollection === ProductCollection.BUSINESS ? "filter-text active" : "filter-text"} onClick={() =>searchCollectionHandler(ProductCollection.BUSINESS)}>Business</span>
+              <span className={productSearch.productCollection === ProductCollection.SPORT ? "filter-text active" : "filter-text"} onClick={() =>searchCollectionHandler(ProductCollection.SPORT)}>Sport</span>
+              <span className={productSearch.productCollection === ProductCollection.TRAVEL ? "filter-text active" : "filter-text"} onClick={() =>searchCollectionHandler(ProductCollection.TRAVEL)}>Travel</span>
+              <span className={productSearch.productCollection === ProductCollection.SPECIAL ? "filter-text active" : "filter-text"} onClick={() =>searchCollectionHandler(ProductCollection.SPECIAL)}>Special</span>
             </Stack>
             <Stack className="product-wrapper" direction="row" flexWrap="wrap" gap={2}>
                  {products.length !== 0 ? (
