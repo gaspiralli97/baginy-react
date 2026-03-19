@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Stack, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Stack, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import TabPanel from "@mui/lab/TabPanel";
 import moment from "moment";
 import { createSelector } from "@reduxjs/toolkit";
@@ -26,30 +26,23 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
   const { processOrders } = useSelector(processOrdersRetriever);
   const { setValue } = props;
   const { authMember, setOrderBuilder } = useGlobals();
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [pendingOrderId, setPendingOrderId] = useState<string>("");
 
-  
-  const finishOrderHandler = async (e: T) => {
+  const finishOrderHandler = (e: T) => {
+    setPendingOrderId(e.target.value);
+    setConfirmOpen(true);
+  };
+
+  const handleConfirm = async () => {
+    setConfirmOpen(false);
     try {
       if (!authMember) throw new Error(Messages.error2);
-
-      // PAYMENT PROCESS
-
-      const orderId = e.target.value;
-      const input: OrderUpdateInput = {
-        orderId: orderId,
-        orderStatus: OrderStatus.FINISH,
-      };
-
-      const confirmation = window.confirm(
-        "Have you received your order?"
-      );
-      if (confirmation) {
-        const order = new OrderService();
-        await order.updateOrder(input);
-
-        setValue("3");
-        setOrderBuilder(new Date());
-      }
+      const input: OrderUpdateInput = { orderId: pendingOrderId, orderStatus: OrderStatus.FINISH };
+      const order = new OrderService();
+      await order.updateOrder(input);
+      setValue("3");
+      setOrderBuilder(new Date());
     } catch (err) {
       console.log(err);
       sweetErrorHandling(err).then();
@@ -58,6 +51,54 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
 
   return (
     <TabPanel value="2">
+      <Dialog
+        open={confirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        PaperProps={{
+          sx: {
+            borderRadius: "16px",
+            padding: "12px 8px",
+            minWidth: "360px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+          },
+        }}
+      >
+        <DialogTitle sx={{ fontFamily: "Poppins", fontWeight: 700, fontSize: "18px", pb: 1 }}>
+          Confirm Receipt
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText sx={{ fontFamily: "Poppins", fontSize: "14px", color: "#616164" }}>
+            Have you received your order? This will mark the order as completed.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
+          <Button
+            onClick={() => setConfirmOpen(false)}
+            sx={{
+              fontFamily: "Poppins", fontSize: "13px", fontWeight: 500,
+              textTransform: "none", borderRadius: "10px",
+              border: "1.5px solid #E0E0E0", color: "#0C0C0C",
+              px: 3, "&:hover": { background: "#F5F5F5" },
+            }}
+          >
+            Not yet
+          </Button>
+          <Button
+            onClick={handleConfirm}
+            variant="contained"
+            sx={{
+              fontFamily: "Poppins", fontSize: "13px", fontWeight: 600,
+              textTransform: "none", borderRadius: "10px",
+              background: "#0C0C0C", color: "#FFFFFF", px: 3,
+              "&:hover": { background: "#333" },
+              boxShadow: "none",
+            }}
+          >
+            Yes, received
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       <Stack>
         {processOrders?.map((order: Order) => {
           return (

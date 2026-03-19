@@ -149,7 +149,7 @@ export default function OrdersPage() {
                 <input
                   type="text"
                   id="card-number"
-                  placeholder="Card number:  **** 4468 2642 7125"
+                  placeholder="Card number"
                   className={"payment-input"}
                 />
               </div>
@@ -162,7 +162,7 @@ export default function OrdersPage() {
                   <input
                     type="text"
                     id="expiry-date"
-                    placeholder=" 07/24"
+                    placeholder="MM/YY"
                     className={"payment-input2"}
                   />
                 </div>
@@ -173,7 +173,7 @@ export default function OrdersPage() {
                   <input
                     type="text"
                     id="cvv"
-                    placeholder=" CVV: 010"
+                    placeholder="CVV"
                     className={"payment-input2"}
                   />
                 </div>
@@ -187,7 +187,7 @@ export default function OrdersPage() {
                  
                   type="text"
                   id="cardholder-name"
-                  placeholder="Cardholder name: Justin Robertson"
+                  placeholder="Cardholder name"
                   className={"payment-input"}
                 />
               </div>

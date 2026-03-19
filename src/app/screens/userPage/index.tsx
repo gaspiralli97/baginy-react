@@ -59,10 +59,10 @@ export default function UserPage() {
                 </span>
               </Box>
               <Box className={"user-media-box"}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <TelegramIcon />
-                <YouTubeIcon />
+                <FacebookIcon sx={{ color: "#1877F2" }} />
+                <InstagramIcon sx={{ color: "#E1306C" }} />
+                <TelegramIcon sx={{ color: "#2AABEE" }} />
+                <YouTubeIcon sx={{ color: "#FF0000" }} />
               </Box>
               <p className={"user-desc"}>
                 {authMember?.memberDesc 
