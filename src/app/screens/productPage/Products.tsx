@@ -16,7 +16,7 @@ import { Product, ProductInquiry } from "../../../lib/types/product";
 import { retrieveProducts } from "./selector";
 import { createSelector} from "reselect";
 import ProductService from "../../services/ProductService";
-import { ProductCollection, ProductVolume } from "../../../lib/enums/product.enum";
+import { ProductCollection} from "../../../lib/enums/product.enum";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
@@ -42,7 +42,7 @@ export default function Products(props:ProductsProps) {
       page:1,
       limit: 8,
       order:"createdAt",
-      productCollection:ProductCollection.DISH,
+      productCollection:ProductCollection.SPORT,
       search:"",
   });
   const [searchText, setSearchText] = useState<string>("");
@@ -103,7 +103,7 @@ const chosenDishHandler = (id:string) =>{
       <Container>
         <Stack flexDirection="column" alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
-            <Box className="title">Burak Restaurant</Box>
+            <Box className="title">Velmora Collection</Box>
             <Stack className="search">
               <input
                 className="input-text"
@@ -148,29 +148,27 @@ const chosenDishHandler = (id:string) =>{
           </Stack>
           <Stack className={"list-category-section"} spacing={2}>
             <Stack className="prod-cat" direction="row" spacing={1}>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.OTHER ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.OTHER)}>
-                Other
+              <Button variant="contained" color={productSearch.productCollection === ProductCollection.BUSINESS? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.BUSINESS)}>
+                Business
               </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.DESSERT? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.DESSERT)}>
-                Dessert
+              <Button variant="contained" color={productSearch.productCollection === ProductCollection.SPORT? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.SPORT)}>
+                Sport
               </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.DRINK ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.DRINK)}>
-                Drink
+              <Button variant="contained" color={productSearch.productCollection === ProductCollection.TRAVEL ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.TRAVEL)}>
+                Travel
               </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.SALAD ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.SALAD)}>
-                Salad
+              <Button variant="contained" color={productSearch.productCollection === ProductCollection.SPECIAL ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.SPECIAL)}>
+                Special
               </Button>
-              <Button variant="contained" color={productSearch.productCollection === ProductCollection.DISH ? "primary" :"secondary"} onClick={() =>searchCollectionHandler(ProductCollection.DISH)}>
-                Dish
-              </Button>
+            
             </Stack>
             <Stack className="product-wrapper" direction="row" flexWrap="wrap" gap={2}>
                  {products.length !== 0 ? (
                      products.map((product:Product)=>{
                       const imagePath= `${serverApi}/${product.productImages[0]}`;
-                      const sizeVolume=product.productCollection === ProductCollection.DRINK 
-                          ? product.productVolume + "L" 
-                          : product.productSize + " size";
+                      const sizeVolume=product.productCollection === ProductCollection.TRAVEL
+                          ? product.productVolume 
+                          : product.productSize ;
                          return (
                             <Stack key={product._id} className="product-card" onClick={()=>chosenDishHandler(product._id)}>
                               <Stack
@@ -236,12 +234,13 @@ const chosenDishHandler = (id:string) =>{
       </Container>
 
       <div className="brand-logo">
-        <Stack className="brand-title">Our Family Brands</Stack>
+        <Stack className="brand-title">Our Staff</Stack>
         <Stack className="brand-card" direction="row" spacing={2}>
           <Box className="card1" />
           <Box className="card2" />
           <Box className="card3" />
           <Box className="card4" />
+          <Box className="card5" />
         </Stack>
       </div>
 
