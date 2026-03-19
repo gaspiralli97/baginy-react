@@ -166,47 +166,45 @@ const chosenDishHandler = (id:string) =>{
                  {products.length !== 0 ? (
                      products.map((product:Product)=>{
                       const imagePath= `${serverApi}/${product.productImages[0]}`;
-                      const sizeVolume=product.productCollection === ProductCollection.TRAVEL
-                          ? product.productVolume 
-                          : product.productSize ;
                          return (
                             <Stack key={product._id} className="product-card" onClick={()=>chosenDishHandler(product._id)}>
                               <Stack
                                   className="product-img"
-                                  
                                   sx={{
-                                     backgroundImage:`url(${imagePath})`,
+                                    backgroundImage:`url(${imagePath})`,
                                     backgroundSize: "cover",
-                                 }}
+                                  }}
                                 >
-                                  <div className="product-sale">{sizeVolume}</div>
-                                   <Button 
-                                   className="shop-btn"
-                                   onClick={(e) =>{
-                                    
-                                    onAdd({
-                                      _id:product._id,
-                                      quantity:1,
-                                      name:product.productName,
-                                      price:product.productPrice,
-                                      image:product.productImages[0],
-                                    });
-                                    e.stopPropagation();
-                                   }}
-                                   >
-                                        <img src="/icons/shopping-cart.svg" alt="" />
-                                   </Button>
-                                   <Button className="view-btn" sx={{ right: "36px" }}>
-                                        <Badge badgeContent={product.productViews} color="secondary">
-                                            <RemoveRedEyeIcon sx={{ color:product.productViews === 0 ? "grey" : "white", }} />
-                                        </Badge>
-                                   </Button>
+                                  <Box className="card-actions">
+                                    <Button
+                                      className="view-btn"
+                                      disableRipple
+                                      onClick={(e) => e.stopPropagation()}
+                                    >
+                                      <Badge badgeContent={product.productViews} color="secondary">
+                                        <RemoveRedEyeIcon sx={{ fontSize: 18, color: "#0C0C0C" }} />
+                                      </Badge>
+                                    </Button>
+                                    <Button
+                                      className="shop-btn"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        onAdd({
+                                          _id: product._id,
+                                          quantity: 1,
+                                          name: product.productName,
+                                          price: product.productPrice,
+                                          image: product.productImages[0],
+                                        });
+                                      }}
+                                    >
+                                      <img src="/icons/shopping-cart.svg" alt="" style={{ width: 18, filter: "invert(1)" }} />
+                                    </Button>
+                                  </Box>
                               </Stack>
                               <Box className="product-desc">
                                    <span className="product-title">{product.productName}</span>
-                                   <div className="product-desc">
-                                       <MonetizationOnIcon /> {product.productPrice}
-                                   </div>
+                                   <span className="product-price">${product.productPrice}</span>
                               </Box>
                             </Stack>
                          );

@@ -1,5 +1,6 @@
-import React from "react";
-import { Box, Container, Stack, Tabs } from "@mui/material";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Box, ClickAwayListener, Container, Stack, Tabs } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Tab from "@mui/material/Tab";
 import Accordion from "@mui/material/Accordion";
@@ -12,13 +13,38 @@ import TabPanel from "@mui/lab/TabPanel";
 import "../../../css/help.css";
 import { faq } from "../../../lib/data/faq";
 import { terms } from "../../../lib/data/terms";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { useGlobals } from "../../hooks/useGlobals";
 
 export default function HelpPage() {
-  const [value, setValue] = React.useState("1");
+  const location = useLocation<{ tab?: string }>();
+  const [value, setValue] = useState(location.state?.tab ?? "1");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sent, setSent] = useState(false);
+  const { authMember } = useGlobals();
 
   /** HANDLERS **/
   const handleChange = (e: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+  };
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!authMember) {
+      sweetErrorHandling(new Error("Please login first!")).then();
+      return;
+    }
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      sweetErrorHandling(new Error("Please fill in all fields!")).then();
+      return;
+    }
+    setSent(true);
+    setName("");
+    setEmail("");
+    setMessage("");
+    setTimeout(() => setSent(false), 3000);
   };
 
   return (
@@ -71,45 +97,46 @@ export default function HelpPage() {
                 </Stack>
               </TabPanel>
               <TabPanel value={"3"}>
+                <ClickAwayListener onClickAway={() => setValue("1")}>
                 <Stack className={"admin-letter-box"}>
                   <Stack className={"admin-letter-container"}>
                     <Box className={"admin-letter-frame"}>
                       <span>Contact us!</span>
                       <p>Fill out below form to send a message!</p>
                     </Box>
-                    <form
-                      action={"#"}
-                      method={"POST"}
-                      className={"admin-letter-frame"}
-                    >
+                    <form className={"admin-letter-frame"} onSubmit={handleSend}>
                       <div className={"admin-input-box"}>
                         <label>Your name</label>
                         <input
                           type={"text"}
-                          name={"memberNick"}
                           placeholder={"Type your name here"}
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
                         />
                       </div>
                       <div className={"admin-input-box"}>
                         <label>Your email</label>
                         <input
                           type={"text"}
-                          name={"memberEmail"}
                           placeholder={"Type your email here"}
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
                       <div className={"admin-input-box"}>
                         <label>Message</label>
                         <textarea
-                          name={"memberMsg"}
                           placeholder={"Your message"}
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
                         ></textarea>
                       </div>
-                      <Box
-                        display={"flex"}
-                        justifyContent={"flex-end"}
-                        sx={{ mt: "30px" }}
-                      >
+                      <Box display={"flex"} justifyContent={"flex-end"} alignItems={"center"} sx={{ mt: "30px", gap: 2 }}>
+                        {sent && (
+                          <Typography sx={{ color: "#4caf50", fontFamily: "Poppins", fontSize: "13px" }}>
+                            Message sent!
+                          </Typography>
+                        )}
                         <Button type={"submit"} variant="contained">
                           Send
                         </Button>
@@ -117,6 +144,7 @@ export default function HelpPage() {
                     </form>
                   </Stack>
                 </Stack>
+                </ClickAwayListener>
               </TabPanel>
             </Stack>
           </Stack>

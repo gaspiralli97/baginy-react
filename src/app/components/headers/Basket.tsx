@@ -81,7 +81,6 @@ export default function Basket(props:BasketProps) {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        // onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -111,7 +110,7 @@ export default function Basket(props:BasketProps) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Stack className={"basket-frame"}>
+        <Stack className={"basket-frame"} onClick={(e) => e.stopPropagation()}>
           <Box className={"all-check-box"}>
             {cartItems.length === 0 ? (
               <div>Cart is empty!</div>

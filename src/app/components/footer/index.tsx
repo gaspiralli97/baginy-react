@@ -35,8 +35,8 @@ export default function Footer() {
           <Stack className={"foot-col"}>
             <Box className={"foot-category-title"}>Support</Box>
             <Box className={"foot-category-link"}>
-              <Link to="/help">FAQ</Link>
-              <Link to="/help">Contact</Link>
+              <Link to={{ pathname: "/help", state: { tab: "2" } }}>FAQ</Link>
+              <Link to={{ pathname: "/help", state: { tab: "3" } }}>Contact</Link>
             </Box>
           </Stack>
 
@@ -61,10 +61,18 @@ export default function Footer() {
         {/* Social icons — centered */}
         <Stack alignItems={"center"} sx={{ mb: "48px" }}>
           <Box className={"sns-context"}>
-            <img src={"/icons/twitter.svg"} alt="Twitter" />
-            <img src={"/icons/facebook.svg"} alt="Facebook" />
-            <img src={"/icons/instagram.svg"} alt="Instagram" />
-            <img src={"/icons/youtube.svg"} alt="YouTube" />
+            <a href="https://t.me/Gaspiralli" target="_blank" rel="noreferrer">
+              <img src={"/icons/telegram.svg"} alt="Telegram" />
+            </a>
+            <a href="https://t.me/Gaspiralli" target="_blank" rel="noreferrer">
+              <img src={"/icons/facebook.svg"} alt="Facebook" />
+            </a>
+            <a href="https://t.me/Gaspiralli" target="_blank" rel="noreferrer">
+              <img src={"/icons/instagram.svg"} alt="Instagram" />
+            </a>
+            <a href="https://t.me/Gaspiralli" target="_blank" rel="noreferrer">
+              <img src={"/icons/youtube.svg"} alt="YouTube" />
+            </a>
           </Box>
         </Stack>
 

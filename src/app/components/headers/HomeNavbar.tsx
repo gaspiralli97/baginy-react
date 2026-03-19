@@ -128,6 +128,11 @@ export default function HomeNavbar(props: HomeNavbarProps) {
           <Box className={"head-main-txt"}>
             Your Next Adventure<br />Starts With Us
           </Box>
+          {!authMember && (
+            <Button className={"hero-sign-btn"} variant="contained" onClick={() => setSignupOpen(true)}>
+              Sign Up
+            </Button>
+          )}
         </Stack>
       </Container>
     </div>
