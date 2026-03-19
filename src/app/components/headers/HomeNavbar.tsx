@@ -35,7 +35,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className="menu">
           <Box>
             <NavLink to="/" activeClassName={"underline"}>
-              <img className="brand-logo" src="/icons/burak.svg" alt="Velmora" />
+              <img className="brand-logo" src="/icons/velmora-logo.svg" alt="Velmora" />
             </NavLink>
           </Box>
           <Stack className="links">
@@ -48,12 +48,16 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             <Box className={"hover-line"}>
               <NavLink to="/help" activeClassName={"underline"}>FAQ</NavLink>
             </Box>
-            <Box className={"hover-line"}>
-              <NavLink to="/orders" activeClassName={"underline"}>Orders</NavLink>
-            </Box>
-            <Box className={"hover-line"}>
-              <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
-            </Box>
+            {authMember && (
+              <Box className={"hover-line"}>
+                <NavLink to="/orders" activeClassName={"underline"}>Orders</NavLink>
+              </Box>
+            )}
+            {authMember && (
+              <Box className={"hover-line"}>
+                <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
+              </Box>
+            )}
             <Basket
               cartItems={cartItems}
               onRemove={onRemove}
@@ -64,7 +68,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             {!authMember ? (
               <Box>
                 <Button variant="contained" className="login-button" onClick={() => setLoginOpen(true)}>
-                  Contact Us
+                  Login
                 </Button>
               </Box>
             ) : (
