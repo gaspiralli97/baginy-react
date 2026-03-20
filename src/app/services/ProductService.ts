@@ -16,6 +16,8 @@ class ProductService {
 
             if(input.productCollection)
                 url+=`&productCollection=${input.productCollection}`;
+            if(input.productMode)
+                url+=`&productMode=${input.productMode}`;
             if(input.search) url+= `&search=${input.search}`;
 
             const result = await axios.get(url);

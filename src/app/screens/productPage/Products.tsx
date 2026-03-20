@@ -16,7 +16,8 @@ import { Product, ProductInquiry } from "../../../lib/types/product";
 import { retrieveProducts } from "./selector";
 import { createSelector} from "reselect";
 import ProductService from "../../services/ProductService";
-import { ProductCollection} from "../../../lib/enums/product.enum";
+import { ProductCollection, ProductMode} from "../../../lib/enums/product.enum";
+import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
@@ -38,11 +39,13 @@ export default function Products(props:ProductsProps) {
   const{onAdd}= props;
   const {setProducts} = actionDispatch(useDispatch());
   const {products} = useSelector(productsRetriever);
+  const {goldMode} = useGlobals();
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
       page:1,
       limit: 8,
       order:"createdAt",
       productCollection:ProductCollection.BUSINESS,
+      productMode: goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT,
       search:"",
   });
   const [searchText, setSearchText] = useState<string>("");
@@ -71,6 +74,12 @@ useEffect(()=>{
       setProductSearch({... productSearch});
     }
 }, [searchText]);
+
+useEffect(()=>{
+    productSearch.page = 1;
+    productSearch.productMode = goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT;
+    setProductSearch({...productSearch});
+}, [goldMode]);
 
 // handler
 
