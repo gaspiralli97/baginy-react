@@ -44,7 +44,7 @@ export default function HomePage() {
       productCollection:ProductCollection.TRAVEL,
       productMode: currentMode,
     })
-    .then((data) =>{
+    .then(({data}) =>{
 
       setPopularDishes(data);
     })
@@ -58,7 +58,7 @@ export default function HomePage() {
       productMode: currentMode,
       //productCollection:ProductCollection.DISH,
     })
-    .then((data) =>{
+    .then(({data}) =>{
 
       setNewDishes(data);
     })

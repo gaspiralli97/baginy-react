@@ -20,6 +20,11 @@ export interface Product{
     createdAt:Date;
 }
 
+export interface ProductsResponse{
+    data: Product[];
+    total: number;
+}
+
 export interface ProductInquiry{
     order:string;
     limit: number;

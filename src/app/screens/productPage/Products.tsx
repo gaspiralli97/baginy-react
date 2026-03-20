@@ -48,6 +48,7 @@ export default function Products(props:ProductsProps) {
       productMode: goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT,
       search:"",
   });
+  const [total, setTotal] = useState<number>(0);
   const [searchText, setSearchText] = useState<string>("");
   const [searchHistory, setSearchHistory] = useState<string[]>(() => {
     try { return JSON.parse(localStorage.getItem("searchHistory") || "[]"); } catch { return []; }
@@ -61,8 +62,9 @@ export default function Products(props:ProductsProps) {
     const product= new ProductService();
     product
     .getProducts(productSearch)
-    .then((data) =>{
+    .then(({data, total}) =>{
       setProducts(data);
+      setTotal(total);
     })
     .catch((err)=>console.log(err));
 }, [productSearch]);
@@ -70,36 +72,26 @@ export default function Products(props:ProductsProps) {
 useEffect(()=>{
     //backend derver data fetch=>data
     if (searchText === "") {
-      productSearch.search = "";
-      setProductSearch({... productSearch});
+      setProductSearch({...productSearch, search:""});
     }
 }, [searchText]);
 
 useEffect(()=>{
-    productSearch.page = 1;
-    productSearch.productMode = goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT;
-    setProductSearch({...productSearch});
+    setProductSearch({...productSearch, page:1, productMode: goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT});
 }, [goldMode]);
 
 // handler
 
 const searchCollectionHandler =(collection:ProductCollection) => {
-  productSearch.page = 1;
-  productSearch.productCollection = collection;
-  setProductSearch({...productSearch});
-
+  setProductSearch({...productSearch, page:1, productCollection: collection});
 };
 
 const searchOrderHandler =(order:string) => {
-  productSearch.page = 1;
-  productSearch.order = order;
-  setProductSearch({...productSearch});
-
+  setProductSearch({...productSearch, page:1, order});
 };
 
 const searchProductHandler = () =>{
-  productSearch.search = searchText;
-  setProductSearch({...productSearch});
+  setProductSearch({...productSearch, search: searchText});
   if (searchText.trim()) {
     const updated = [searchText, ...searchHistory.filter(h => h !== searchText)].slice(0, 8);
     setSearchHistory(updated);
@@ -109,8 +101,7 @@ const searchProductHandler = () =>{
 };
 
 const paginationHandler = (e:ChangeEvent<any>, value:number) =>{
-  productSearch.page= value;
-  setProductSearch({...productSearch});
+  setProductSearch({...productSearch, page: value});
 };
 
 const chosenDishHandler = (id:string) =>{
@@ -233,7 +224,7 @@ const chosenDishHandler = (id:string) =>{
           </Stack>
           <Stack className="pagi-section">
             <Pagination
-              count={products.length !== 0 ? productSearch.page + 1 : productSearch.page}
+              count={Math.ceil(total / productSearch.limit)}
               page={productSearch.page}
               renderItem={(item) => (
                 <PaginationItem

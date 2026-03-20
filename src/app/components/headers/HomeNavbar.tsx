@@ -58,7 +58,13 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
               </Box>
             )}
-            <Tooltip title={goldMode ? "Gold Mode ON" : "Gold Mode OFF"}>
+            <Tooltip
+              title={goldMode
+                ? "Premium Mode — exclusive gold collection is active"
+                : "Elegant Mode — switch to Premium for exclusive products"
+              }
+              arrow
+            >
               <Switch
                 checked={goldMode}
                 onChange={(e) => setGoldMode(e.target.checked)}
