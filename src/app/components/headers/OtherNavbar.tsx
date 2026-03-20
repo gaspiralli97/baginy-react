@@ -1,4 +1,4 @@
-import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
+import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack, Switch, Tooltip } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { CartItem } from "../../../lib/types/search";
@@ -22,14 +22,14 @@ interface OtherNavbarProps{
 
 export default function OtherNavbar(props:OtherNavbarProps) {
     const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, setSignupOpen,handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
-    const {authMember}=useGlobals();
+    const {authMember, goldMode, setGoldMode}=useGlobals();
     return (
-         <div className="other-navbar" style={{ backgroundImage: "url('/img/othernavbar.png')" }}>
+         <div className="other-navbar" style={{ backgroundImage: goldMode ? "url('/img/premiumbg.jpg')" : "url('/img/othernavbar.png')" }}>
             <Container className="navbar-container">
                 <Stack className="menu" >
                     <Box>
                         <NavLink to="/" activeClassName={"underline"}>
-                           <img className="brand-logo" src="/icons/velmora-logo.svg" alt="Velmora"/>
+                           <img className="brand-logo" src="/icons/baginy-logo.svg" alt="Baginy"/>
                         </NavLink>
                     </Box>
                     <Stack className="links">
@@ -52,12 +52,23 @@ export default function OtherNavbar(props:OtherNavbarProps) {
                             <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
                           </Box>
                         )}
-                        <Basket 
+                        <Tooltip title={goldMode ? "Gold Mode ON" : "Gold Mode OFF"}>
+                          <Switch
+                            checked={goldMode}
+                            onChange={(e) => setGoldMode(e.target.checked)}
+                            size="small"
+                            sx={{
+                              "& .MuiSwitch-switchBase.Mui-checked": { color: "#C89B3C" },
+                              "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": { backgroundColor: "#C89B3C" },
+                            }}
+                          />
+                        </Tooltip>
+                        <Basket
                            cartItems={cartItems}
-                           onRemove={onRemove} 
-                           onDelete={onDelete} 
-                           onDeleteAll={onDeleteAll} 
-                           onAdd={onAdd} 
+                           onRemove={onRemove}
+                           onDelete={onDelete}
+                           onDeleteAll={onDeleteAll}
+                           onAdd={onAdd}
                         />
                         {!authMember ? (<Box><Button
                            variant="contained" className="login-button" onClick={()=>setLoginOpen(true)}

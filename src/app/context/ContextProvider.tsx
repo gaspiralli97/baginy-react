@@ -15,9 +15,10 @@ const ContextProvider: React.FC<{children:ReactNode}>=({children})=>{
     );
 
     const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
+    const [goldMode, setGoldMode] = useState<boolean>(false);
 
     return(
-        <GlobalContext.Provider value={{authMember, setAuthMember, orderBuilder, setOrderBuilder}}>
+        <GlobalContext.Provider value={{authMember, setAuthMember, orderBuilder, setOrderBuilder, goldMode, setGoldMode}}>
             {children}
         </GlobalContext.Provider>
     );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Button, Container, Stack, Typography } from "@mui/material";import { orange } from "@mui/material/colors";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
@@ -27,7 +27,15 @@ import { GlobalContext, useGlobals } from "./hooks/useGlobals";
 
 function App() {
   const location =useLocation();
-  const {setAuthMember}= useGlobals();
+  const {setAuthMember, goldMode}= useGlobals();
+
+  useEffect(() => {
+    if (goldMode) {
+      document.body.classList.add("gold-mode");
+    } else {
+      document.body.classList.remove("gold-mode");
+    }
+  }, [goldMode]);
   const {cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);

@@ -13,7 +13,7 @@ export default function Advertisement(){
                muted
                playsInline
                data-video-media="">
-                  <source type="video/mp4" src="/video/Velmora-ads.m4.mov"/>
+                  <source type="video/mp4" src="/video/Baginy-ads.m4.mov"/>
                </video>
         </div>
        );

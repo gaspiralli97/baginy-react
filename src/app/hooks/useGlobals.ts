@@ -7,6 +7,8 @@ interface GlobalInterface{
     setAuthMember:(member:Member | null) => void;
     orderBuilder: Date;
     setOrderBuilder:(input:Date) => void;
+    goldMode: boolean;
+    setGoldMode:(value:boolean) => void;
 }
 
 export const GlobalContext=createContext<GlobalInterface | undefined>(undefined);

@@ -46,6 +46,10 @@ export default function Products(props:ProductsProps) {
       search:"",
   });
   const [searchText, setSearchText] = useState<string>("");
+  const [searchHistory, setSearchHistory] = useState<string[]>(() => {
+    try { return JSON.parse(localStorage.getItem("searchHistory") || "[]"); } catch { return []; }
+  });
+  const [showSuggestions, setShowSuggestions] = useState<boolean>(false);
 
   const history =useHistory();
 
@@ -87,6 +91,12 @@ const searchOrderHandler =(order:string) => {
 const searchProductHandler = () =>{
   productSearch.search = searchText;
   setProductSearch({...productSearch});
+  if (searchText.trim()) {
+    const updated = [searchText, ...searchHistory.filter(h => h !== searchText)].slice(0, 8);
+    setSearchHistory(updated);
+    localStorage.setItem("searchHistory", JSON.stringify(updated));
+  }
+  setShowSuggestions(false);
 };
 
 const paginationHandler = (e:ChangeEvent<any>, value:number) =>{
@@ -103,20 +113,33 @@ const chosenDishHandler = (id:string) =>{
       <Container>
         <Stack flexDirection="column" alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
-            <Box className="title">Velmora Collection</Box>
-            <Stack className="search">
+            <Box className="title">Baginy Collection</Box>
+            <Stack className="search" style={{ position: "relative" }}>
               <input
                 className="input-text"
                 type={"search"}
                 name={"singleResearch"}
                 value={searchText}
                 placeholder={"Type here"}
-                
+                autoComplete={"off"}
                 onChange={(e) => setSearchText(e.target.value)}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                 onKeyDown={(e)=>{
                   if(e.key === "Enter") searchProductHandler();
                 }}
               />
+              {showSuggestions && searchHistory.filter(h => h.toLowerCase().includes(searchText.toLowerCase())).length > 0 && (
+                <ul className="search-suggestions">
+                  {searchHistory
+                    .filter(h => h.toLowerCase().includes(searchText.toLowerCase()))
+                    .map((h, i) => (
+                      <li key={i} onMouseDown={() => { setSearchText(h); setShowSuggestions(false); }}>
+                        {h}
+                      </li>
+                    ))}
+                </ul>
+              )}
               <Button
                 endIcon={<SearchIcon />}
                 variant="contained"

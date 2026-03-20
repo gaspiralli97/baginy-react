@@ -1,4 +1,4 @@
-import { Box, Button, Container, ListItemIcon, Stack } from "@mui/material";
+import { Box, Button, Container, ListItemIcon, Stack, Switch, Tooltip } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { CartItem } from "../../../lib/types/search";
@@ -23,19 +23,19 @@ interface HomeNavbarProps {
 
 export default function HomeNavbar(props: HomeNavbarProps) {
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, setSignupOpen, handleCloseLogout, handleLogoutClick, anchorEl, handleLogoutRequest } = props;
-  const { authMember } = useGlobals();
+  const { authMember, goldMode, setGoldMode } = useGlobals();
 
   return (
     <div
       className="home-navbar"
-      style={{ backgroundImage: "url('/img/hero-background.jpg')" }}
+      style={{ backgroundImage: goldMode ? "url('/img/premiumbg.jpg')" : "url('/img/hero-background.jpg')" }}
     >
       {/* ── TOP MENU ── */}
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
             <NavLink to="/" activeClassName={"underline"}>
-              <img className="brand-logo" src="/icons/velmora-logo.svg" alt="Velmora" />
+              <img className="brand-logo" src="/icons/baginy-logo.svg" alt="Baginy" />
             </NavLink>
           </Box>
           <Stack className="links">
@@ -58,6 +58,17 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
               </Box>
             )}
+            <Tooltip title={goldMode ? "Gold Mode ON" : "Gold Mode OFF"}>
+              <Switch
+                checked={goldMode}
+                onChange={(e) => setGoldMode(e.target.checked)}
+                size="small"
+                sx={{
+                  "& .MuiSwitch-switchBase.Mui-checked": { color: "#C89B3C" },
+                  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": { backgroundColor: "#C89B3C" },
+                }}
+              />
+            </Tooltip>
             <Basket
               cartItems={cartItems}
               onRemove={onRemove}
