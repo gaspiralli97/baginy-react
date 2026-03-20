@@ -149,7 +149,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
           Create account
         </Typography>
         <Typography sx={{ fontFamily: "Poppins", fontSize: "13px", color: "#888", mb: 3 }}>
-          Join Velmora and start your journey
+          Join Baginy and start your journey
         </Typography>
 
         <Stack spacing={2}>
@@ -157,6 +157,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             fullWidth
             label="Username"
             variant="outlined"
+            value={memberNick}
             onChange={handleUsername}
             sx={inputSx}
           />
@@ -164,6 +165,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             fullWidth
             label="Phone number"
             variant="outlined"
+            value={memberPhone}
             onChange={handlePhone}
             sx={inputSx}
           />
@@ -172,6 +174,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             label="Password"
             variant="outlined"
             type={showPassword ? "text" : "password"}
+            value={memberPassword}
             onChange={handlePassword}
             onKeyDown={handlePasswordKeyDown}
             sx={inputSx}
@@ -192,6 +195,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
           variant="contained"
           onClick={handleSignupRequest}
           startIcon={<LoginIcon />}
+          className="auth-signup-btn"
           sx={{
             mt: 3,
             borderRadius: "10px",
@@ -274,7 +278,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
           Welcome back
         </Typography>
         <Typography sx={{ fontFamily: "Poppins", fontSize: "13px", color: "#888", mb: 3 }}>
-          Sign in to your Velmora account
+          Sign in to your Baginy account
         </Typography>
 
         <Stack spacing={2}>
@@ -282,6 +286,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             fullWidth
             label="Username"
             variant="outlined"
+            value={memberNick}
             onChange={handleUsername}
             sx={inputSx}
           />
@@ -290,6 +295,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             label="Password"
             variant="outlined"
             type={showPassword ? "text" : "password"}
+            value={memberPassword}
             onChange={handlePassword}
             onKeyDown={handlePasswordKeyDown}
             sx={inputSx}
@@ -310,6 +316,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
           variant="contained"
           onClick={handleLoginRequest}
           startIcon={<LoginIcon />}
+          className="auth-login-btn"
           sx={{
             mt: 3,
             borderRadius: "10px",

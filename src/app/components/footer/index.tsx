@@ -13,12 +13,12 @@ const Footers = styled.div`
 
 export default function Footer() {
   return (
-    <Footers>
+    <Footers className="site-footer">
       <Container>
 
         {/* Logo — centered */}
         <Stack alignItems={"center"} sx={{ mb: "56px" }}>
-          <Box className={"footer-logo-text"}>Velmora</Box>
+          <Box className={"footer-logo-text"}>Baginy</Box>
         </Stack>
 
         {/* 4-column grid — centered */}
@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Copyright */}
         <Stack alignItems={"center"}>
           <Box className={"copyright-txt"}>
-            Copyright © Velmora. All rights reserved.
+            Copyright © Baginy. All rights reserved.
           </Box>
         </Stack>
 

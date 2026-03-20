@@ -45,7 +45,7 @@ export default function Events() {
                       <div className={"event-title-speaker"}>
                         <strong>{value.title}</strong>
                         <div className={"event-organizator"}>
-                          <img src={"/icons/velmora-logo.svg"} style={{ width: "60px", height: "14px" }} />
+                          <img src={"/icons/baginy-logo.svg"} style={{ width: "60px", height: "14px" }} />
                           <p className={"spec-text-author"}>{value.author}</p>
                         </div>
                       </div>
