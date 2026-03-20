@@ -1,6 +1,6 @@
 import axios from "axios";
 import { serverApi } from "../../lib/config";
-import { Product, ProductInquiry } from "../../lib/types/product";
+import { Product, ProductInquiry, ProductsResponse } from "../../lib/types/product";
 
 
 class ProductService {
@@ -10,7 +10,7 @@ class ProductService {
         this.path= serverApi;
     }
 
-    public async getProducts(input:ProductInquiry): Promise<Product[]>{
+    public async getProducts(input:ProductInquiry): Promise<ProductsResponse>{
         try {
             let url = `${this.path}/product/all?order=${input.order}&page=${input.page}&limit=${input.limit}`;
 
