@@ -10,7 +10,10 @@
 .homepage .static-frame{
     width: 100%;
     height: 236px;
-    background: #343434;
+    background: #EBEBEB;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 1;
 }
 
 .homepage .static-frame .info{
@@ -37,7 +40,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 80px;
-    color: #d7b686;
+    color: #343434;
 }
 
 .homepage .static-frame .info .static-box .static-text{
@@ -47,7 +50,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 30px;
-    color: #d7b686;
+    color: #343434;
 }
 
 
@@ -57,7 +60,7 @@
     width: 100%;
     height: 580px;
     display: flex;
-    background: #f8f8ff;
+    background: #EBEBEB;
 }
 
 
@@ -91,6 +94,23 @@
     min-height: 430px;
     min-width: 300px;
     cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.45s ease;
+    border-radius: 12px;
+}
+
+.homepage .popular-dishes-frame .cards-frame .card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.35);
+}
+
+.homepage .popular-dishes-frame .cards-frame .card img {
+    transition: transform 0.6s ease;
+}
+
+.homepage .popular-dishes-frame .cards-frame .card:hover img {
+    transform: scale(1.1);
 }
 
 .homepage .popular-dishes-frame .cards-frame .card .card-cover{
@@ -102,6 +122,11 @@
     linear-gradient(to top,
         rgba(0,0,0,0.8),
         rgba(0,0,0,0) 300px);
+    transition: opacity 0.4s ease;
+}
+
+.homepage .popular-dishes-frame .cards-frame .card:hover .card-cover {
+    opacity: 0.7;
 }
 
 .homepage .popular-dishes-frame .no-data{
@@ -130,7 +155,7 @@
     width: 100%;
     height: 605px;
     display: flex;
-    background: #f8f8ff;
+    background: #EBEBEB;
 }
 
 .homepage .main{
@@ -160,6 +185,38 @@
     height: 335px;
     width: 290px;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.homepage .new-products-frame .main .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+}
+
+/* Shimmer sweep effect */
+.homepage .new-products-frame .main .card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 50%;
+    height: 200%;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255,255,255,0.45) 50%,
+        transparent 60%
+    );
+    transform: skewX(-15deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.homepage .new-products-frame .main .card:hover::after {
+    left: 130%;
 }
 
 .homepage .new-products-frame .product-sale{
@@ -252,7 +309,7 @@
     color: #e3c08d;
 }
 
-.homepage .ads-restaurant-frame{
+.homepage .ads-seller-frame{
     width: 100%;
     height: 693px;
     display: flex;
@@ -262,7 +319,7 @@
     box-shadow: -3px 0px 20px 14px #34343480;
 }
 
-.homepage .ads-restaurant-frame .ads-video{
+.homepage .ads-seller-frame .ads-video{
     width: 100%;
     background: #0c0e12;
     display: flex;
@@ -341,6 +398,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.45s ease;
+}
+
+.homepage .events-frame .events-info .events-info-frame:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
 }
 
 .homepage .events-frame .events-img {
@@ -499,7 +566,36 @@
 .homepage .cards-frame .user-card {
   width: 305px;
   height: 342.50px;
-  border-radius: 12px 12px 0px 0px; 
+  border-radius: 12px 12px 0px 0px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+  position: relative;
+}
+
+.homepage .cards-frame .user-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.15) 0%,
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.homepage .cards-frame .user-card:hover {
+    transform: translateY(-14px) rotate(-1deg);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+}
+
+.homepage .cards-frame .user-card:hover::before {
+    opacity: 1;
 }
 
 .homepage .cards-frame .user-name{ 

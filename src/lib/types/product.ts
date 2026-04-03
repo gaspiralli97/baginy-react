@@ -1,4 +1,4 @@
-import { ProductCollection, ProductSize, ProductStatus } from "../enums/product.enum";
+import { ProductBundle, ProductCollection, ProductColor, ProductMode, ProductSize, ProductStatus } from "../enums/product.enum";
 
 export interface Product{
     _id: string;
@@ -8,7 +8,9 @@ export interface Product{
     productPrice: number;
     productLeftCount: number;
     productSize: ProductSize;
-    productVolume: number;
+    productColor: ProductColor;
+    productBundle: ProductBundle;
+    productMode: ProductMode;
     productDesc?: string;
     productImages: string[];
     productViews: number;
@@ -17,11 +19,17 @@ export interface Product{
     createdAt:Date;
 }
 
+export interface ProductsResponse{
+    data: Product[];
+    total: number;
+}
+
 export interface ProductInquiry{
     order:string;
     limit: number;
     page: number;
     productCollection?:ProductCollection;
+    productMode?:ProductMode;
     search?:string;
 
 }

@@ -2,7 +2,7 @@
 
 export enum MemberType{
     USER ="USER",
-    RESTAURANT="RESTAURANT",
+    SELLER="SELLER",
 }
 
 export enum MemberStatus {

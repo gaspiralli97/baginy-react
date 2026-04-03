@@ -17,7 +17,6 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import "../../../css/orders.css";
-import { Height } from "@mui/icons-material";
 import { useHistory } from "react-router-dom";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
@@ -35,7 +34,7 @@ export default function OrdersPage() {
   const [value, setValue] = useState("1");
   const {orderBuilder, authMember} = useGlobals();
    
-  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
+  const [orderInquiry] = useState<OrderInquiry>({
     page: 1,
     limit: 5,
     orderStatus: OrderStatus.PAUSE,
@@ -62,6 +61,7 @@ export default function OrdersPage() {
         setFinishedOrders(data);
       })
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderInquiry, orderBuilder]);
 
 
@@ -111,16 +111,18 @@ export default function OrdersPage() {
                         : "/icons/default-user.svg"
                   }
                   className={"order-user-avatar"}
+                  alt=""
                 />
               </div>
               <div className={"order-user-icon-box"}>
                 <img
                   src={
-                    authMember?.memberType === MemberType.RESTAURANT 
+                    authMember?.memberType === MemberType.SELLER
                          ? "/icons/restaurant.svg"
                          : "/icons/user-badge.svg"
                   }
                   className={"order-user-prof-img"}
+                  alt=""
                 />
               </div>
               <span className={"order-user-name"}>
@@ -149,7 +151,7 @@ export default function OrdersPage() {
                 <input
                   type="text"
                   id="card-number"
-                  placeholder="Card number:  **** 4468 2642 7125"
+                  placeholder="Card number"
                   className={"payment-input"}
                 />
               </div>
@@ -162,7 +164,7 @@ export default function OrdersPage() {
                   <input
                     type="text"
                     id="expiry-date"
-                    placeholder=" 07/24"
+                    placeholder="MM/YY"
                     className={"payment-input2"}
                   />
                 </div>
@@ -173,7 +175,7 @@ export default function OrdersPage() {
                   <input
                     type="text"
                     id="cvv"
-                    placeholder=" CVV: 010"
+                    placeholder="CVV"
                     className={"payment-input2"}
                   />
                 </div>
@@ -187,7 +189,7 @@ export default function OrdersPage() {
                  
                   type="text"
                   id="cardholder-name"
-                  placeholder="Cardholder name: Justin Robertson"
+                  placeholder="Cardholder name"
                   className={"payment-input"}
                 />
               </div>

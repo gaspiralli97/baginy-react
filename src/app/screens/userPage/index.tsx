@@ -41,13 +41,14 @@ export default function UserPage() {
                       ? `${serverApi}/${authMember.memberImage}`
                       : "/icons/default-user.svg"}
                     className={"order-user-avatar"}
+                    alt=""
                   />
                   <div className={"order-user-icon-box"}>
                     <img src={
-                      authMember?.memberType === MemberType.RESTAURANT 
+                      authMember?.memberType === MemberType.SELLER
                       ? "/icons/restaurant.svg"
                       : "/icons/user-badge.svg"
-                    } />
+                    } alt="" />
                   </div>
                 </div>
                 <span className={"order-user-name"}>{authMember?.memberNick}</span>
@@ -59,10 +60,10 @@ export default function UserPage() {
                 </span>
               </Box>
               <Box className={"user-media-box"}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <TelegramIcon />
-                <YouTubeIcon />
+                <FacebookIcon sx={{ color: "#1877F2" }} />
+                <InstagramIcon sx={{ color: "#E1306C" }} />
+                <TelegramIcon sx={{ color: "#2AABEE" }} />
+                <YouTubeIcon sx={{ color: "#FF0000" }} />
               </Box>
               <p className={"user-desc"}>
                 {authMember?.memberDesc 

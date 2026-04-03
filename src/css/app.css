@@ -37,3 +37,707 @@
     transform: translateY(0px);
   }
 }
+
+/* ══════════════════════════════════════════════════════
+   CREAM ROYALE — Gold Mode
+   #F2E5C6  page bg  · #F2D9A0  cards
+   #75162D  burgundy · #1B1B1B  text
+   rgba(117,22,45,0.15) border
+   ══════════════════════════════════════════════════════ */
+
+body.gold-mode {
+  background-color: #F2E5C6 !important;
+  color: #1B1B1B !important;
+}
+
+/* ── NAVBAR ── */
+body.gold-mode .home-navbar .navbar-container .menu,
+body.gold-mode .other-navbar .navbar-container .menu {
+  background: rgba(117, 22, 45, 0.97) !important;
+  border-bottom: 1px solid rgba(242, 217, 160, 0.18) !important;
+}
+
+body.gold-mode .home-navbar .hover-line a,
+body.gold-mode .other-navbar .hover-line a {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .home-navbar .navbar-container .menu .links .login-button,
+body.gold-mode .other-navbar .navbar-container .menu .links .login-button {
+  background: transparent !important;
+  color: #F2D9A0 !important;
+  border-color: #F2D9A0 !important;
+}
+
+body.gold-mode .home-navbar .navbar-container .menu .links .login-button:hover,
+body.gold-mode .other-navbar .navbar-container .menu .links .login-button:hover {
+  background: #F2D9A0 !important;
+  color: #75162D !important;
+}
+
+/* Navbar logo → cream */
+body.gold-mode .home-navbar .navbar-container .menu .brand-logo,
+body.gold-mode .other-navbar .navbar-container .menu .brand-logo {
+  filter: brightness(0) saturate(100%) invert(95%) sepia(18%) saturate(400%) hue-rotate(330deg) !important;
+}
+
+/* Hero */
+body.gold-mode .home-navbar .head-main-txt {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .home-navbar .hero-label {
+  background: rgba(242, 217, 160, 0.75) !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .home-navbar .hero-label a {
+  color: #75162D !important;
+}
+
+body.gold-mode .home-navbar .hero-sign-btn {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .home-navbar .hero-sign-btn:hover {
+  background: #5C1024 !important;
+  color: #F2D9A0 !important;
+}
+
+/* ── BASKET ── */
+body.gold-mode .basket-frame {
+  background: #F2E5C6 !important;
+  border-color: rgba(117, 22, 45, 0.15) !important;
+}
+
+body.gold-mode .basket-frame .all-check-box {
+  background: #F2D9A0 !important;
+  border-color: rgba(117, 22, 45, 0.12) !important;
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .basket-info-box .product-name,
+body.gold-mode .basket-info-box .product-price {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .basket-frame .basket-order {
+  border-top-color: rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .basket-order .price {
+  color: #75162D !important;
+}
+
+/* ── HOMEPAGE ── */
+body.gold-mode .homepage .static-frame {
+  background: #75162D !important;
+  box-shadow: 0 8px 28px rgba(117, 22, 45, 0.25) !important;
+}
+
+body.gold-mode .homepage .static-frame .info .static-box .static-num,
+body.gold-mode .homepage .static-frame .info .static-box .static-text {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .homepage .popular-dishes-frame {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .homepage .popular-dishes-frame .popular-section .category-title {
+  color: #1B1B1B !important;
+}
+
+/* Popular items card text + view icon → footer text color (#F2D9A0) */
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card .MuiTypography-root,
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card span,
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card p,
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card h6,
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card .MuiCardContent-root,
+body.gold-mode .homepage .popular-dishes-frame .cards-frame .card .MuiSvgIcon-root {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .homepage .new-products-frame {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .homepage .new-products-frame .product-detail {
+  background-color: #75162D !important;
+  border-color: rgba(117, 22, 45, 0.3) !important;
+}
+
+body.gold-mode .homepage .new-products-frame .product-detail .title,
+body.gold-mode .homepage .new-products-frame .product-detail .price,
+body.gold-mode .homepage .new-products-frame .product-detail .views,
+body.gold-mode .homepage .new-products-frame .product-detail .viewa,
+body.gold-mode .homepage .new-products-frame .product-detail .info {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .homepage .new-products-frame .product-detail .viewa .MuiSvgIcon-root {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .homepage .events-frame {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .homepage .events-frame .events-desc {
+  background: #F2D9A0 !important;
+  box-shadow: 0 4px 20px rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .homepage .events-frame .bott-left .text-desc,
+body.gold-mode .homepage .events-frame .bott-info .bott-info-main {
+  color: rgba(27, 27, 27, 0.6) !important;
+}
+
+body.gold-mode .homepage .active-users-frame {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .homepage .active-users-frame .category-title {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .homepage .active-users-frame .cards-frame .user-card {
+  background: #75162D !important;
+  border-color: rgba(242, 217, 160, 0.25) !important;
+}
+
+body.gold-mode .homepage .active-users-frame .cards-frame .user-card .JoyCardOverflow-root {
+  background: transparent !important;
+}
+
+body.gold-mode .homepage .cards-frame .user-name {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  padding: 4px 0 !important;
+}
+
+body.gold-mode .homepage .cards-frame .no-data,
+body.gold-mode .homepage .popular-dishes-frame .no-data,
+body.gold-mode .homepage .new-products-frame .no-data {
+  color: #75162D !important;
+}
+
+/* ── PRODUCTS PAGE ── */
+body.gold-mode .products-page,
+body.gold-mode .products-page .products {
+  background: #F2E5C6 !important;
+  background-color: #F2E5C6 !important;
+}
+
+body.gold-mode .products-page .brand-logo {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .products-page .brand-logo .brand-title {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .products-page .adress {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .products-page .adress .title,
+body.gold-mode .products-page .products .avatar-big-box .title {
+  color: #1B1B1B !important;
+}
+
+/* Filter */
+body.gold-mode .products-page .filter-text {
+  color: rgba(27, 27, 27, 0.38) !important;
+}
+
+body.gold-mode .products-page .filter-text.active,
+body.gold-mode .products-page .filter-text:hover {
+  color: #75162D !important;
+  border-bottom-color: #75162D !important;
+}
+
+/* Search bar */
+body.gold-mode .products-page .products .avatar-big-box .search {
+  background: #F2D9A0 !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search .input-text {
+  background: #F2D9A0 !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search .input-text::-webkit-search-results-button,
+body.gold-mode .products-page .products .avatar-big-box .search .input-text::-webkit-search-decoration {
+  background: #F2D9A0 !important;
+}
+
+/* Search suggestions dropdown → footer text color */
+body.gold-mode .products-page .products .avatar-big-box .search .search-suggestions {
+  background: #F2D9A0 !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+  box-shadow: 0 4px 16px rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search .search-suggestions li {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search .search-suggestions li:hover {
+  background: rgba(117, 22, 45, 0.1) !important;
+}
+
+/* MUI dropdown Paper (basket popup, logout menu) */
+body.gold-mode .MuiPaper-root,
+body.gold-mode .MuiMenu-paper {
+  background: #F2E5C6 !important;
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .MuiMenuItem-root {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .MuiMenuItem-root:hover {
+  background: rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search .input-text {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search button {
+  background-color: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .products-page .products .avatar-big-box .search button:hover {
+  background-color: #5C1024 !important;
+  color: #F2D9A0 !important;
+}
+
+/* Product cards */
+body.gold-mode .products-page .products .product-wrapper .product-card {
+  background: #F2D9A0 !important;
+  border: 1px solid rgba(117, 22, 45, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .products-page .products .product-wrapper .product-card:hover {
+  box-shadow:
+    0 20px 60px rgba(117, 22, 45, 0.18),
+    0 0 0 1px rgba(117, 22, 45, 0.4) !important;
+}
+
+body.gold-mode .products-page .products .product-wrapper .product-card .product-img {
+  background-color: #F2E5C6 !important;
+}
+
+body.gold-mode .products-page .products .product-img .card-actions {
+  background: rgba(242, 217, 160, 0.97) !important;
+  border-top: 1px solid rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .products-page .products .view-btn {
+  color: #75162D !important;
+}
+
+body.gold-mode .products-page .products .view-btn:hover {
+  background: rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .products-page .products .shop-btn {
+  border-left: 1px solid rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .products-page .products .shop-btn:hover {
+  background: rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .products-page .products .product-wrapper .product-card .product-desc {
+  background: #F2D9A0 !important;
+  border-top: 1px solid rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .products-page .products .product-wrapper .product-card .product-desc .product-title {
+  color: #1B1B1B !important;
+  font-weight: 600 !important;
+}
+
+body.gold-mode .products-page .products .product-wrapper .product-card .product-desc .product-price {
+  color: #75162D !important;
+  font-weight: 600 !important;
+}
+
+body.gold-mode .products-page .products .no-data {
+  color: #75162D !important;
+}
+
+/* Chosen product */
+body.gold-mode .products-page .chosen-product {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .products-page .chosen-product .chosen-product-slider,
+body.gold-mode .products-page .chosen-product .chosen-product-info {
+  background: #F2D9A0 !important;
+  box-shadow:
+    0 8px 40px rgba(117, 22, 45, 0.15),
+    0 0 0 1px rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .products-page .chosen-product .info-box .product-name,
+body.gold-mode .products-page .chosen-product .info-box .product-desc {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .products-page .chosen-product .product-price span {
+  color: #75162D !important;
+}
+
+body.gold-mode .products-page .chosen-product .info-box .resto-name {
+  color: rgba(27, 27, 27, 0.5) !important;
+}
+
+/* ── ORDERS PAGE ── */
+body.gold-mode .order-page,
+body.gold-mode .order-page .order-container {
+  background-color: #F2E5C6 !important;
+}
+
+/* ── FAQ PAGE ── */
+body.gold-mode .help-page {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .help-page .rules-box,
+body.gold-mode .help-page .accordion-menu,
+body.gold-mode .help-page .admin-letter-box {
+  background: #F2E5C6 !important;
+  border-color: rgba(117, 22, 45, 0.15) !important;
+}
+
+body.gold-mode .help-page .MuiAccordion-root,
+body.gold-mode .help-page .MuiAccordionSummary-root,
+body.gold-mode .help-page .MuiAccordionDetails-root {
+  background: #F2E5C6 !important;
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .help-page .rules-box .rules-frame p {
+  color: #1B1B1B !important;
+  border-bottom-color: rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .help-page .admin-letter-frame span {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .help-page .admin-letter-frame p {
+  color: rgba(27, 27, 27, 0.6) !important;
+}
+
+body.gold-mode .help-page .admin-letter-frame .admin-input-box label {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .help-page .admin-letter-frame .admin-input-box input,
+body.gold-mode .help-page .admin-letter-frame .admin-input-box textarea {
+  background: #F2E5C6 !important;
+  color: #1B1B1B !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .help-page .admin-letter-box button[type="submit"] {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .help-page .admin-letter-box button[type="submit"]:hover {
+  background: #5C1024 !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .MuiTab-root {
+  color: rgba(27, 27, 27, 0.4) !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .MuiTab-root.Mui-selected {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .MuiTabs-indicator {
+  background-color: #75162D !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .order-main-box {
+  background: #F2D9A0 !important;
+  border: 1px solid rgba(117, 22, 45, 0.15) !important;
+  box-shadow: 0 4px 24px rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .order-main-box .orders-name-price {
+  border-bottom-color: rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .order-main-box .orders-name-price .title-dish,
+body.gold-mode .order-page .order-container .order-left .order-main-box .orders-name-price .price-box {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box {
+  background: #F2E5C6 !important;
+  border-top-color: rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box .box-total p,
+body.gold-mode .order-page .order-container .order-left .total-price-box .data-compl {
+  color: rgba(27, 27, 27, 0.55) !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box .cancel-button {
+  background: transparent !important;
+  color: #75162D !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box .cancel-button:hover {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box .payment-button,
+body.gold-mode .order-page .order-main-box .process-payment-button {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .order-page .order-container .order-left .total-price-box .payment-button:hover,
+body.gold-mode .order-page .order-main-box .process-payment-button:hover {
+  background: #5C1024 !important;
+}
+
+/* Order right sidebar */
+body.gold-mode .order-page .order-container .order-right .order-info-box .member-box,
+body.gold-mode .order-page .order-container .order-right .order-payment-box {
+  background: #F2D9A0 !important;
+  border: 1px solid rgba(117, 22, 45, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .order-info-box .member-box .order-user-name {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .order-info-box .member-box .order-user-prof,
+body.gold-mode .order-page .order-container .order-right .order-info-box .order-user-address {
+  color: rgba(27, 27, 27, 0.5) !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .order-info-box .liner {
+  background: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .payment-label {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .payment-input,
+body.gold-mode .order-page .order-container .order-right .payment-input2 {
+  background: #F2E5C6 !important;
+  color: #1B1B1B !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .payment-input:focus,
+body.gold-mode .order-page .order-container .order-right .payment-input2:focus {
+  border-color: #75162D !important;
+}
+
+body.gold-mode .order-page .order-container .order-right .payment-icons {
+  border-top-color: rgba(117, 22, 45, 0.1) !important;
+}
+
+/* ── USER PAGE ── */
+body.gold-mode .user-page {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .user-page .order-info-box {
+  background: #F2D9A0 !important;
+  border: 1px solid rgba(117, 22, 45, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(117, 22, 45, 0.08) !important;
+}
+
+body.gold-mode .user-page .order-info-box .order-user-name {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .user-page .order-info-box .order-user-prof {
+  color: rgba(27, 27, 27, 0.5) !important;
+}
+
+body.gold-mode .user-page .order-info-box .user-desc {
+  color: rgba(27, 27, 27, 0.5) !important;
+  border-top-color: rgba(117, 22, 45, 0.1) !important;
+}
+
+body.gold-mode .user-page .order-info-box .order-user-icon-box {
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .my-page-left .menu-name {
+  color: #1B1B1B !important;
+  border-bottom-color: rgba(117, 22, 45, 0.12) !important;
+}
+
+body.gold-mode .user-page .settings .spec-label {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .user-page .settings .spec-input,
+body.gold-mode .user-page .settings .spec-textarea {
+  background: #F2E5C6 !important;
+  color: #1B1B1B !important;
+  border-color: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .user-page .settings .spec-input:focus,
+body.gold-mode .user-page .settings .spec-textarea:focus {
+  border-color: #75162D !important;
+}
+
+body.gold-mode .user-page .settings .save-box button {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .user-page .settings .save-box button:hover {
+  background: #5C1024 !important;
+}
+
+/* Finished order "Completed" button → burgundy */
+body.gold-mode .order-page .order-main-box .completed-payment-button {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .order-page .order-main-box .completed-payment-button:hover {
+  background: #5C1024 !important;
+}
+
+/* Product detail "Add To Basket" button → burgundy */
+body.gold-mode .products-page .chosen-product .button-box .MuiButton-root {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .products-page .chosen-product .button-box .MuiButton-root:hover {
+  background: #5C1024 !important;
+}
+
+/* Basket "Order" button → burgundy */
+body.gold-mode .basket-order .MuiButton-root {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .basket-order .MuiButton-root:hover {
+  background: #5C1024 !important;
+}
+
+/* Logout MenuItem → burgundy accent */
+body.gold-mode .MuiMenuItem-root .MuiListItemIcon-root {
+  color: #75162D !important;
+}
+
+/* ── AUTH MODAL BUTTONS ── */
+body.gold-mode .auth-signup-btn {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .auth-signup-btn:hover {
+  background: #5C1024 !important;
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .auth-login-btn {
+  background: #75162D !important;
+  color: #F2D9A0 !important;
+  border-color: #75162D !important;
+}
+
+body.gold-mode .auth-login-btn:hover {
+  background: #5C1024 !important;
+  color: #F2D9A0 !important;
+}
+
+/* Auth modal inputs → same as Settings spec-input in gold mode */
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-root {
+  background: #F2E5C6 !important;
+  border-radius: 10px !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-input {
+  color: #1B1B1B !important;
+  background: #F2E5C6 !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-input:-webkit-autofill,
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-input:-webkit-autofill:hover,
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #F2E5C6 inset !important;
+  -webkit-text-fill-color: #1B1B1B !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiInputLabel-root {
+  color: #1B1B1B !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiInputLabel-root.Mui-focused {
+  color: #75162D !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-root fieldset {
+  border-color: rgba(117, 22, 45, 0.2) !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-root:hover fieldset {
+  border-color: rgba(117, 22, 45, 0.5) !important;
+}
+
+body.gold-mode .MuiDialog-paper .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #75162D !important;
+}
+
+/* ── FOOTER → BURGUNDY ── */
+body.gold-mode .site-footer {
+  background: #75162D !important;
+  background-color: #75162D !important;
+}
+
+body.gold-mode .footer-logo-text,
+body.gold-mode .foot-category-title {
+  color: #F2D9A0 !important;
+}
+
+body.gold-mode .foot-category-link a,
+body.gold-mode .footer-bottom-links a,
+body.gold-mode .footer-sep,
+body.gold-mode .copyright-txt {
+  color: rgba(242, 229, 198, 0.55) !important;
+}
+
+body.gold-mode .foot-category-link a:hover,
+body.gold-mode .footer-bottom-links a:hover {
+  color: #F2D9A0 !important;
+}
