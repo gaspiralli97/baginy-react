@@ -21,7 +21,7 @@ interface OtherNavbarProps{
 }
 
 export default function OtherNavbar(props:OtherNavbarProps) {
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, setSignupOpen,handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
     const {authMember, goldMode, setGoldMode}=useGlobals();
     return (
          <div className="other-navbar" style={{ backgroundImage: goldMode ? "url('/img/premiumbg.jpg')" : "url('/img/othernavbar.png')" }}>
@@ -79,12 +79,12 @@ export default function OtherNavbar(props:OtherNavbarProps) {
                         {!authMember ? (<Box><Button
                            variant="contained" className="login-button" onClick={()=>setLoginOpen(true)}
                            >Login</Button></Box>) :
-                            (<img  className="user-avatar" src={authMember?.memberImage 
-                                                            ? `${serverApi}/${authMember?.memberImage}`
-                                                            : "/icons/default-user.svg"
-                                                        } 
-                                                            aria-haspopup={"true"}
-                                                            onClick={handleLogoutClick}/>)}
+                            (<div aria-haspopup="true" onClick={handleLogoutClick} style={{ cursor: "pointer" }}>
+                              <img className="user-avatar" src={authMember?.memberImage
+                                ? `${serverApi}/${authMember?.memberImage}`
+                                : "/icons/default-user.svg"
+                              } alt="" />
+                            </div>)}
                         <Menu
                            anchorEl={anchorEl}
 	                       id="account-menu"

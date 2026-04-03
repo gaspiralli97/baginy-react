@@ -1,4 +1,3 @@
-import { Cookie } from "@mui/icons-material"
 import { ReactNode, useState } from "react";
 import Cookies from "universal-cookie";
 import { GlobalContext } from "../hooks/useGlobals";

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Container } from "@mui/material";
 import NewDishes from "./NewDishes";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
@@ -71,6 +70,7 @@ export default function HomePage() {
       setTopUsers(data);
    })
    .catch((err) =>console.log(err));
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [goldMode]);
 
 
