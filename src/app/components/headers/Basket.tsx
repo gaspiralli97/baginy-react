@@ -73,7 +73,7 @@ export default function Basket(props:BasketProps) {
         onClick={handleClick}
       >
         <Badge badgeContent={cartItems.length} color="secondary">
-          <img src={"/icons/shopping-cart.svg"} />
+          <img src={"/icons/shopping-cart.svg"} alt="" />
         </Badge>
       </IconButton>
       <Menu
@@ -81,7 +81,6 @@ export default function Basket(props:BasketProps) {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        // onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -111,7 +110,7 @@ export default function Basket(props:BasketProps) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Stack className={"basket-frame"}>
+        <Stack className={"basket-frame"} onClick={(e) => e.stopPropagation()}>
           <Box className={"all-check-box"}>
             {cartItems.length === 0 ? (
               <div>Cart is empty!</div>
@@ -139,7 +138,7 @@ export default function Basket(props:BasketProps) {
                         onClick={() => onDelete(item)}
                       />
                     </div>
-                    <img src={imagePath} className={"product-img"} />
+                    <img src={imagePath} className={"product-img"} alt="" />
                     <span className={"product-name"}>{item.name}</span>
                     <p className={"product-price"}>{item.price} x {item.quantity}</p>
                     <Box sx={{ minWidth: 120 }}>

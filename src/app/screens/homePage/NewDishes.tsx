@@ -15,7 +15,6 @@ import { createSelector } from "reselect";
 import { retrieveNewDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
-import { ProductCollection } from "../../../lib/enums/product.enum";
 
 
 //Redux Slice & Sproductctor
@@ -31,19 +30,15 @@ export default function NewDishes(){
        <div className={"new-products-frame"}>
           <Container>
               <Stack className={"main"}>
-                     <Box className="category-title">Fresh Menu</Box>
+                     <Box className="category-title">New Arrivals</Box>
                      <Stack className="cards-frame">
                         <CssVarsProvider>
                             {newDishes.length!==0 ?(
                                    newDishes.map((product:Product)=>{
                                       const imagePath=`${serverApi}/${product.productImages[0]}`;
-                                      const sizeVolume=product.productCollection === ProductCollection.DRINK 
-                                      ? product.productVolume + "L" 
-                                      : product.productSize + " size";
                                     return(
                                          <Card key={product._id} variant="outlined" className={"card"}>
                                             <CardOverflow>
-                                                 <div className="product-sale">{sizeVolume}</div>
                                                  <AspectRatio ratio="1">
                                                         <img src={imagePath} alt="" />
                                                  </AspectRatio>

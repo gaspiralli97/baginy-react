@@ -1,4 +1,4 @@
-import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
+import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack, Switch, Tooltip } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import { CartItem } from "../../../lib/types/search";
@@ -21,53 +21,70 @@ interface OtherNavbarProps{
 }
 
 export default function OtherNavbar(props:OtherNavbarProps) {
-    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, setSignupOpen,handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
-    const {authMember}=useGlobals();
+    const {cartItems, onAdd, onRemove, onDelete, onDeleteAll, setLoginOpen, handleCloseLogout,handleLogoutClick,anchorEl, handleLogoutRequest} =props;
+    const {authMember, goldMode, setGoldMode}=useGlobals();
     return (
-         <div className="other-navbar">
+         <div className="other-navbar" style={{ backgroundImage: goldMode ? "url('/img/premiumbg.jpg')" : "url('/img/othernavbar.png')" }}>
             <Container className="navbar-container">
                 <Stack className="menu" >
                     <Box>
                         <NavLink to="/" activeClassName={"underline"}>
-                           <img className="brand-logo" src="/icons/burak.svg"/>
+                           <img className="brand-logo" src="/icons/baginy-logo.svg" alt="Baginy"/>
                         </NavLink>
                     </Box>
                     <Stack className="links">
                         <Box className={"hover-line"}>
-                          <NavLink to="/">Home</NavLink>
+                          <NavLink to="/" exact activeClassName={"underline"}>Home</NavLink>
                         </Box>
                         <Box className={"hover-line"}>
                           <NavLink to="/products" activeClassName={"underline"}>Products</NavLink>
                         </Box>
-                        {authMember ?(
-                            <Box className={"hover-line"}>
-                              <NavLink to="/orders" activeClassName={"underline"}>Orders</NavLink>
-                            </Box>
-                        ) :null}
-                        {authMember ?(
-                            <Box className={"hover-line"}>
-                              <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
-                            </Box>
-                        ) :null}
                         <Box className={"hover-line"}>
-                          <NavLink to="/help" activeClassName={"underline"}>Help</NavLink>
+                          <NavLink to="/help" activeClassName={"underline"}>FAQ</NavLink>
                         </Box>
-                        <Basket 
+                        {authMember && (
+                          <Box className={"hover-line"}>
+                            <NavLink to="/orders" activeClassName={"underline"}>Orders</NavLink>
+                          </Box>
+                        )}
+                        {authMember && (
+                          <Box className={"hover-line"}>
+                            <NavLink to="/member-page" activeClassName={"underline"}>My Page</NavLink>
+                          </Box>
+                        )}
+                        <Tooltip
+                          title={goldMode
+                            ? "Premium Mode — exclusive gold collection is active"
+                            : "Elegant Mode — switch to Premium for exclusive products"
+                          }
+                          arrow
+                        >
+                          <Switch
+                            checked={goldMode}
+                            onChange={(e) => setGoldMode(e.target.checked)}
+                            size="small"
+                            sx={{
+                              "& .MuiSwitch-switchBase.Mui-checked": { color: "#C89B3C" },
+                              "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": { backgroundColor: "#C89B3C" },
+                            }}
+                          />
+                        </Tooltip>
+                        <Basket
                            cartItems={cartItems}
-                           onRemove={onRemove} 
-                           onDelete={onDelete} 
-                           onDeleteAll={onDeleteAll} 
-                           onAdd={onAdd} 
+                           onRemove={onRemove}
+                           onDelete={onDelete}
+                           onDeleteAll={onDeleteAll}
+                           onAdd={onAdd}
                         />
                         {!authMember ? (<Box><Button
                            variant="contained" className="login-button" onClick={()=>setLoginOpen(true)}
                            >Login</Button></Box>) :
-                            (<img  className="user-avatar" src={authMember?.memberImage 
-                                                            ? `${serverApi}/${authMember?.memberImage}`
-                                                            : "/icons/default-user.svg"
-                                                        } 
-                                                            aria-haspopup={"true"}
-                                                            onClick={handleLogoutClick}/>)}
+                            (<div aria-haspopup="true" onClick={handleLogoutClick} style={{ cursor: "pointer" }}>
+                              <img className="user-avatar" src={authMember?.memberImage
+                                ? `${serverApi}/${authMember?.memberImage}`
+                                : "/icons/default-user.svg"
+                              } alt="" />
+                            </div>)}
                         <Menu
                            anchorEl={anchorEl}
 	                       id="account-menu"

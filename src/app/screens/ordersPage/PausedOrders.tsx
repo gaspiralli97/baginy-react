@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Stack, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Stack, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import TabPanel from "@mui/lab/TabPanel";
 import moment from "moment";
 import { useSelector } from "react-redux";
@@ -27,50 +27,37 @@ export default function PausedOrders(props: PausedOrdersProps) {
   const { setValue } = props;
   const { pausedOrders } = useSelector(pausedOrdersRetriever);
   const { authMember, setOrderBuilder } = useGlobals();
-  
+
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [confirmType, setConfirmType] = useState<"delete" | "process">("delete");
+  const [pendingOrderId, setPendingOrderId] = useState<string>("");
+
   /**Handlers**/
-  const deleteOrderHandler = async (e: T) => {
-    try {
-      if (!authMember) throw new Error(Messages.error2);
-      const orderId = e.target.value;
-
-      const input: OrderUpdateInput = {
-        orderId: orderId,
-        orderStatus: OrderStatus.DELETE,
-      };
-
-      const confirmation = window.confirm("Do you want to delete the order?");
-      if (confirmation) {
-        const order = new OrderService();
-        await order.updateOrder(input);
-
-        setOrderBuilder(new Date());
-      }
-    } catch (err) {
-      console.log(err);
-      sweetErrorHandling(err).then();
-    }
+  const deleteOrderHandler = (e: T) => {
+    setPendingOrderId(e.target.value);
+    setConfirmType("delete");
+    setConfirmOpen(true);
   };
 
-  const processOrderHandler = async (e: T) => {
+  const processOrderHandler = (e: T) => {
+    setPendingOrderId(e.target.value);
+    setConfirmType("process");
+    setConfirmOpen(true);
+  };
+
+  const handleConfirm = async () => {
+    setConfirmOpen(false);
     try {
       if (!authMember) throw new Error(Messages.error2);
-
-      // PAYMENT PROCESS
-
-      const orderId = e.target.value;
-      const input: OrderUpdateInput = {
-        orderId: orderId,
-        orderStatus: OrderStatus.PROCESS,
-      };
-
-      const confirmation = window.confirm(
-        "Do you want to proceed with payment?"
-      );
-      if (confirmation) {
+      if (confirmType === "delete") {
+        const input: OrderUpdateInput = { orderId: pendingOrderId, orderStatus: OrderStatus.DELETE };
         const order = new OrderService();
         await order.updateOrder(input);
-
+        setOrderBuilder(new Date());
+      } else {
+        const input: OrderUpdateInput = { orderId: pendingOrderId, orderStatus: OrderStatus.PROCESS };
+        const order = new OrderService();
+        await order.updateOrder(input);
         setValue("2");
         setOrderBuilder(new Date());
       }
@@ -82,6 +69,56 @@ export default function PausedOrders(props: PausedOrdersProps) {
   
   return (
     <TabPanel value="1">
+      <Dialog
+        open={confirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        PaperProps={{
+          sx: {
+            borderRadius: "16px",
+            padding: "12px 8px",
+            minWidth: "360px",
+            boxShadow: "0 20px 60px rgba(0,0,0,0.15)",
+          },
+        }}
+      >
+        <DialogTitle sx={{ fontFamily: "Poppins", fontWeight: 700, fontSize: "18px", pb: 1 }}>
+          {confirmType === "delete" ? "Cancel Order" : "Proceed to Payment"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText sx={{ fontFamily: "Poppins", fontSize: "14px", color: "#616164" }}>
+            {confirmType === "delete"
+              ? "Are you sure you want to cancel this order? This action cannot be undone."
+              : "Are you sure you want to proceed with the payment for this order?"}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions sx={{ px: 3, pb: 2, gap: 1 }}>
+          <Button
+            onClick={() => setConfirmOpen(false)}
+            sx={{
+              fontFamily: "Poppins", fontSize: "13px", fontWeight: 500,
+              textTransform: "none", borderRadius: "10px",
+              border: "1.5px solid #E0E0E0", color: "#0C0C0C",
+              px: 3, "&:hover": { background: "#F5F5F5" },
+            }}
+          >
+            No, go back
+          </Button>
+          <Button
+            onClick={handleConfirm}
+            sx={{
+              fontFamily: "Poppins", fontSize: "13px", fontWeight: 600,
+              textTransform: "none", borderRadius: "10px",
+              background: confirmType === "delete" ? "#0C0C0C" : "#0C0C0C",
+              color: "#FFFFFF", px: 3,
+              "&:hover": { background: "#333" },
+            }}
+            variant="contained"
+          >
+            {confirmType === "delete" ? "Yes, cancel" : "Yes, proceed"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       <Stack>
         {pausedOrders?.map((order: Order) => {
           return (
@@ -95,12 +132,13 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
                     <Box key={item._id} className="orders-name-price">
-                      <img src={imagePath} className="order-dish-img" />
+                      <img src={imagePath} className="order-dish-img" alt="" />
                       <p className="title-dish">{product.productName}</p>
                       <Box className="price-box">
                         <p>${item.itemPrice}</p>
                         <img
                           src="/icons/close.svg"
+                          alt=""
                           style={{
                             width: "18px",
                             height: "55px",
@@ -109,6 +147,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                         <p>{item.itemQuantity}</p>
                         <img
                           src="/icons/pause.svg"
+                          alt=""
                           style={{
                             width: "18px",
                             height: "55px",
@@ -126,6 +165,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   <p>${order.orderTotal - order.orderDelivery}</p>
                   <img
                     src={"/icons/plus.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -135,6 +175,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   <p>${order.orderDelivery}</p>
                   <img
                     src={"/icons/pause.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -171,6 +212,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
             <Box display="flex" flexDirection="row" justifyContent="center">
               <img
                 src={"/icons/noimage-list.svg"}
+                alt=""
                 style={{ width: 300, height: 300 }}
               />
             </Box>

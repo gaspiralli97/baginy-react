@@ -3,7 +3,6 @@ import CardCover from '@mui/joy/CardCover';
 import { CssVarsProvider } from "@mui/joy/styles";
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
@@ -31,7 +30,7 @@ export default function PopularDishes(){
        <div className="popular-dishes-frame">
           <Container>
               <Stack className="popular-section">
-                     <Box className="category-title">Popular Dishes</Box>
+                     <Box className="category-title">Popular Items</Box>
                      <Stack className="cards-frame">
                          {popularDishes.length !== 0 ?(
                             popularDishes.map((product:Product) =>{
