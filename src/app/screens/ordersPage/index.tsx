@@ -17,7 +17,6 @@ import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import "../../../css/orders.css";
-import { Height } from "@mui/icons-material";
 import { useHistory } from "react-router-dom";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
@@ -35,7 +34,7 @@ export default function OrdersPage() {
   const [value, setValue] = useState("1");
   const {orderBuilder, authMember} = useGlobals();
    
-  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
+  const [orderInquiry] = useState<OrderInquiry>({
     page: 1,
     limit: 5,
     orderStatus: OrderStatus.PAUSE,
@@ -62,6 +61,7 @@ export default function OrdersPage() {
         setFinishedOrders(data);
       })
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderInquiry, orderBuilder]);
 
 
@@ -111,6 +111,7 @@ export default function OrdersPage() {
                         : "/icons/default-user.svg"
                   }
                   className={"order-user-avatar"}
+                  alt=""
                 />
               </div>
               <div className={"order-user-icon-box"}>
@@ -121,6 +122,7 @@ export default function OrdersPage() {
                          : "/icons/user-badge.svg"
                   }
                   className={"order-user-prof-img"}
+                  alt=""
                 />
               </div>
               <span className={"order-user-name"}>

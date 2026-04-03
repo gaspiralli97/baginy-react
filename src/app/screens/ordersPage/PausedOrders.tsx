@@ -132,12 +132,13 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
                     <Box key={item._id} className="orders-name-price">
-                      <img src={imagePath} className="order-dish-img" />
+                      <img src={imagePath} className="order-dish-img" alt="" />
                       <p className="title-dish">{product.productName}</p>
                       <Box className="price-box">
                         <p>${item.itemPrice}</p>
                         <img
                           src="/icons/close.svg"
+                          alt=""
                           style={{
                             width: "18px",
                             height: "55px",
@@ -146,6 +147,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                         <p>{item.itemQuantity}</p>
                         <img
                           src="/icons/pause.svg"
+                          alt=""
                           style={{
                             width: "18px",
                             height: "55px",
@@ -163,6 +165,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   <p>${order.orderTotal - order.orderDelivery}</p>
                   <img
                     src={"/icons/plus.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -172,6 +175,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
                   <p>${order.orderDelivery}</p>
                   <img
                     src={"/icons/pause.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -208,6 +212,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
             <Box display="flex" flexDirection="row" justifyContent="center">
               <img
                 src={"/icons/noimage-list.svg"}
+                alt=""
                 style={{ width: 300, height: 300 }}
               />
             </Box>

@@ -11,7 +11,6 @@ export interface Product{
     productColor: ProductColor;
     productBundle: ProductBundle;
     productMode: ProductMode;
-    productVolume: number;
     productDesc?: string;
     productImages: string[];
     productViews: number;
