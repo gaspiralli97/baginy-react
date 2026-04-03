@@ -1,6 +1,6 @@
 
 
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { serverApi } from "../../lib/config";
 import {LoginInput, Member, MemberInput, MemberUpdateInput} from "../../lib/types/member";
 

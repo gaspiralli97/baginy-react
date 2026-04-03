@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import {Box,Button,Container,InputBase,Stack,} from "@mui/material";
+import {Box,Button,Container,Stack,} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import Badge from "@mui/material/Badge";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
@@ -67,17 +66,16 @@ export default function Products(props:ProductsProps) {
       setTotal(total);
     })
     .catch((err)=>console.log(err));
-}, [productSearch]);
+}, [productSearch]); // eslint-disable-line react-hooks/exhaustive-deps
 
 useEffect(()=>{
-    //backend derver data fetch=>data
     if (searchText === "") {
-      setProductSearch({...productSearch, search:""});
+      setProductSearch((p) => ({...p, search:""}));
     }
 }, [searchText]);
 
 useEffect(()=>{
-    setProductSearch({...productSearch, page:1, productMode: goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT});
+    setProductSearch((p) => ({...p, page:1, productMode: goldMode ? ProductMode.PREMIUM : ProductMode.ELEGANT}));
 }, [goldMode]);
 
 // handler
@@ -255,7 +253,7 @@ const chosenDishHandler = (id:string) =>{
           <Stack className="address-area" spacing={2}>
             <Box className="title">Our Address</Box>
             <iframe
-              
+              title="Our Address"
               style={{ marginTop: 60 }}
               src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25333.534506202912!2d126.6818512!3d37.467997849999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2skr!4v1763571622699!5m2!1sen!2skr"
               width="100%"

@@ -54,7 +54,8 @@ export default function ChosenProduct(props:ChosenProductsProps) {
       .getSeller()
       .then((data)=>setSeller(data))
       .catch((err)=>console.log(err));
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productId]);
 
   if(!chosenProduct) return null;
   return (
@@ -74,7 +75,7 @@ export default function ChosenProduct(props:ChosenProductsProps) {
                 const imagePath=`${serverApi}/${ele}`;
                 return (
                   <SwiperSlide key={index}>
-                    <img className="slider-image" src={imagePath} />
+                    <img className="slider-image" src={imagePath} alt="" />
                   </SwiperSlide>
                 );
               }

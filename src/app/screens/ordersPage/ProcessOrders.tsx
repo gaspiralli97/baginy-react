@@ -112,14 +112,15 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
                     <Box key={item._id} className="orders-name-price">
-                      <img src={imagePath} className="order-dish-img" />
+                      <img src={imagePath} className="order-dish-img" alt="" />
                       <p className="title-dish">{product.productName}</p>
                       <Box className="price-box">
                         <p>${item.itemPrice}</p>
-                        <img src="/icons/close.svg" />
+                        <img src="/icons/close.svg" alt="" />
                         <p>{item.itemQuantity}</p>
                         <img
                           src="/icons/pause.svg"
+                          alt=""
                           style={{ marginLeft: "15px" }}
                         />
                         <p>${item.itemQuantity * item.itemPrice}</p>
@@ -134,6 +135,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
                   <p>${order.orderTotal - order.orderDelivery}</p>
                   <img
                     src={"/icons/plus.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -143,6 +145,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
                   <p>${order.orderDelivery}</p>
                   <img
                     src={"/icons/pause.svg"}
+                    alt=""
                     style={{
                       width: "18px",
                       height: "55px",
@@ -171,6 +174,7 @@ export default function ProcessOrders(props: ProcessOrdersProps) {
             <Box display="flex" flexDirection="row" justifyContent="center">
               <img
                 src={"/icons/noimage-list.svg"}
+                alt=""
                 style={{ width: 300, height: 300 }}
               />
             </Box>
