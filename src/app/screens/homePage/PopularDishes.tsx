@@ -3,7 +3,6 @@ import CardCover from '@mui/joy/CardCover';
 import { CssVarsProvider } from "@mui/joy/styles";
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";

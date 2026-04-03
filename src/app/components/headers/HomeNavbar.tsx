@@ -89,15 +89,16 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 </Button>
               </Box>
             ) : (
-              <img
-                className="user-avatar"
-                src={authMember?.memberImage
-                  ? `${serverApi}/${authMember?.memberImage}`
-                  : "/icons/default-user.svg"
-                }
-                aria-haspopup={"true"}
-                onClick={handleLogoutClick}
-              />
+              <div aria-haspopup="true" onClick={handleLogoutClick} style={{ cursor: "pointer" }}>
+                <img
+                  className="user-avatar"
+                  src={authMember?.memberImage
+                    ? `${serverApi}/${authMember?.memberImage}`
+                    : "/icons/default-user.svg"
+                  }
+                  alt=""
+                />
+              </div>
             )}
 
             <Menu
