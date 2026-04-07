@@ -9,6 +9,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import Divider from "../../components/divider";
 import { Box, Container, Stack } from "@mui/material";
 import Card from "@mui/joy/Card";
+import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
@@ -37,31 +38,32 @@ export default function NewDishes(){
                                    newDishes.map((product:Product)=>{
                                       const imagePath=`${serverApi}/${product.productImages[0]}`;
                                     return(
-                                         <Card key={product._id} variant="outlined" className={"card"}>
-                                            <CardOverflow>
-                                                 <AspectRatio ratio="1">
-                                                        <img src={imagePath} alt="" />
-                                                 </AspectRatio>
-                                            </CardOverflow>
-                                            <CardOverflow variant="soft" className="product-detail">
-                                                 <Stack className="info">
-                                                        <Stack flexDirection={"row"}>
-                                                               <Typography className={"title"}>
-                                                                      {product.productName}
-                                                               </Typography>
-                                                               <Divider width="2" height="24" bg="#d9d9d9"/>
-                                                               <Typography className={"price"}>${product.productPrice}</Typography>
-                                                        </Stack>
-                                                        <Stack>
-                                                               <Typography className={"viewa"}>
-                                                                      {product.productViews}
-                                                                      <VisibilityIcon sx={{fontSize: 20, marginLeft:"5px"}}/>
-
-                                                               </Typography>
-                                                        </Stack>
-                                                 </Stack>
-                                            </CardOverflow>
-                                         </Card>
+                                         <Link key={product._id} to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
+                                           <Card variant="outlined" className={"card"}>
+                                              <CardOverflow>
+                                                   <AspectRatio ratio="1">
+                                                          <img src={imagePath} alt="" />
+                                                   </AspectRatio>
+                                              </CardOverflow>
+                                              <CardOverflow variant="soft" className="product-detail">
+                                                   <Stack className="info">
+                                                          <Stack flexDirection={"row"}>
+                                                                 <Typography className={"title"}>
+                                                                        {product.productName}
+                                                                 </Typography>
+                                                                 <Divider width="2" height="24" bg="#d9d9d9"/>
+                                                                 <Typography className={"price"}>${product.productPrice}</Typography>
+                                                          </Stack>
+                                                          <Stack>
+                                                                 <Typography className={"viewa"}>
+                                                                        {product.productViews}
+                                                                        <VisibilityIcon sx={{fontSize: 20, marginLeft:"5px"}}/>
+                                                                 </Typography>
+                                                          </Stack>
+                                                   </Stack>
+                                              </CardOverflow>
+                                           </Card>
+                                         </Link>
                                    );
                               })
                             ):(
