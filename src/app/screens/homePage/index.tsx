@@ -5,6 +5,8 @@ import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
 import PopularDishes from "./PopularDishes";
 import Statistics from "./Statistics";
+import WhyChooseUs from "./WhyChooseUs";
+import CountdownTimer from "./CountdownTimer";
 import { useDispatch, } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
@@ -75,11 +77,13 @@ export default function HomePage() {
 
 
  
-  return( 
+  return(
   <div className={"homepage"}>
       <Statistics/>
+      <CountdownTimer/>
       <PopularDishes/>
       <NewDishes/>
+      <WhyChooseUs/>
       <Advertisement/>
       <ActiveUsers/>
       <Events/>
