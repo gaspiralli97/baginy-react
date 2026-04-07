@@ -9,6 +9,7 @@ import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 
 import { Box, Container, Stack } from "@mui/material";
 import { Card } from "@mui/joy";
+import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
@@ -37,6 +38,7 @@ export default function PopularDishes(){
                               const imagePath=`${serverApi}/${product.productImages[0]}`;
                               return(
                                    <CssVarsProvider key={product._id}>
+                                     <Link to={`/products/${product._id}`} style={{ textDecoration: "none" }}>
                                           <Card className={"card"}>
                                              <CardCover>
                                                  <img src={imagePath} alt="" />
@@ -75,7 +77,7 @@ export default function PopularDishes(){
                                                 </Typography>
                                              </CardOverflow>
                                            </Card>
-  
+                                     </Link>
                                    </CssVarsProvider>
                             );
                          }) 
