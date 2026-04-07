@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useGlobals } from "../../hooks/useGlobals";
 
 const Footers = styled.div`
   width: 100%;
@@ -12,6 +13,8 @@ const Footers = styled.div`
 `;
 
 export default function Footer() {
+  const { authMember } = useGlobals();
+
   return (
     <Footers className="site-footer">
       <Container>
@@ -33,20 +36,24 @@ export default function Footer() {
           </Stack>
 
           <Stack className={"foot-col"}>
-            <Box className={"foot-category-title"}>Support</Box>
+            <Box className={"foot-category-title"}>
+              <Link to="/help">Support</Link>
+            </Box>
             <Box className={"foot-category-link"}>
               <Link to={{ pathname: "/help", state: { tab: "2" } }}>FAQ</Link>
               <Link to={{ pathname: "/help", state: { tab: "3" } }}>Contact</Link>
             </Box>
           </Stack>
 
-          <Stack className={"foot-col"}>
-            <Box className={"foot-category-title"}>Others</Box>
-            <Box className={"foot-category-link"}>
-              <Link to="/orders">Orders</Link>
-              <Link to="/member-page">My Page</Link>
-            </Box>
-          </Stack>
+          {authMember && (
+            <Stack className={"foot-col"}>
+              <Box className={"foot-category-title"}>Others</Box>
+              <Box className={"foot-category-link"}>
+                <Link to="/orders">Orders</Link>
+                <Link to="/member-page">My Page</Link>
+              </Box>
+            </Stack>
+          )}
 
           <Stack className={"foot-col"}>
             <Box className={"foot-category-title"}>Utility</Box>

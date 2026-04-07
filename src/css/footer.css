@@ -30,6 +30,16 @@
   letter-spacing: 0;
 }
 
+.foot-category-title a {
+  color: #0C0C0C;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.foot-category-title a:hover {
+  color: #888888;
+}
+
 .foot-category-title:after {
   display: none;
 }
