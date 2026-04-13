@@ -16,7 +16,7 @@ class OrderService {
             const orderItems: OrderItemInput[] = input.map((cartItem: CartItem) => {
                 return {
                     itemQuantity: cartItem.quantity,
-                    itemPrice: cartItem.price,
+                    itemPrice: cartItem.quantity * cartItem.price,
                     productId: cartItem._id,
                 };
             });
