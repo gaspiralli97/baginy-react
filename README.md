@@ -1,9 +1,13 @@
-# Velmora
+# Baginy
 
 Frontend for [baginy.kr](https://baginy.kr), a luggage and travel-bag store. React with Redux Toolkit,
-talking to the Velmora API over REST and Socket.IO.
+talking to the Baginy API over REST and Socket.IO.
 
 **Live:** [baginy.kr](https://baginy.kr) · **Backend:** [baginy](https://github.com/gaspiralli97/baginy)
+
+<img src="docs/screenshots/home.jpg" alt="Baginy home" width="100%" />
+
+<img src="docs/screenshots/catalog.jpg" alt="Baginy collection with category tabs" width="100%" />
 
 ## Tech Stack
 
@@ -16,6 +20,7 @@ talking to the Velmora API over REST and Socket.IO.
 | Data | Axios |
 | Real-time | socket.io-client |
 | Extras | Swiper (carousels), SweetAlert2 (dialogs) |
+| Theming | Light and dark mode toggle |
 
 ## Screens
 
@@ -37,7 +42,7 @@ cp .env.example .env
 npm start
 ```
 
-Set `REACT_APP_API_URL` to a running Velmora API. The app opens on
+Set `REACT_APP_API_URL` to a running Baginy API. The app opens on
 `http://localhost:3000`.
 
 ## Scripts
