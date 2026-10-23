@@ -1,9 +1,9 @@
 # Velmora
 
-Frontend for Velmora, a luggage and travel-bag store. React with Redux Toolkit,
+Frontend for [baginy.kr](https://baginy.kr), a luggage and travel-bag store. React with Redux Toolkit,
 talking to the Velmora API over REST and Socket.IO.
 
-**Backend:** [baginy](https://github.com/gaspiralli97/baginy)
+**Live:** [baginy.kr](https://baginy.kr) · **Backend:** [baginy](https://github.com/gaspiralli97/baginy)
 
 ## Tech Stack
 
