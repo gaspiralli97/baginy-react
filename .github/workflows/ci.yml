@@ -14,5 +14,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      # MUI v4 still declares a React 16/17 peer range while the app runs
+      # React 18, so the install needs the legacy resolver.
+      - run: npm ci --legacy-peer-deps
       - run: npx tsc --noEmit
