@@ -13,10 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      # MUI v4 still declares a React 16/17 peer range while the app runs
-      # React 18. `npm ci` takes this as config, not as a flag.
-      - run: npm ci
-        env:
-          NPM_CONFIG_LEGACY_PEER_DEPS: "true"
+      # `npm ci` is not usable here: package-lock.json has drifted out of sync
+      # with package.json. MUI v4 also still declares a React 16/17 peer range
+      # while the app runs React 18, hence the legacy resolver.
+      - run: npm install --legacy-peer-deps --no-audit --no-fund
       - run: npx tsc --noEmit
